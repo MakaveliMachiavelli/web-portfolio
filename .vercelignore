@@ -1,0 +1,11 @@
+.git
+node_modules
+dist
+dist-ssr
+ai video generation/
+GLB/
+build.txt
+*.log
+*.mp4
+!public/*.mp4
+public/artisan beadfit demo.mp4
