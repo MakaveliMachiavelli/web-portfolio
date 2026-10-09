@@ -708,30 +708,24 @@ export default function BentoGrid() {
   const [copiedContact, setCopiedContact] = useState(false);
   const [copiedDraft, setCopiedDraft] = useState(false);
 
-  // Cinematic 3D Cybernetic Scroll Animation
+  // Cinematic Cybernetic Scroll Animation (Optimized for 60/120 FPS across all devices)
   useEffect(() => {
-    // 1. Initial 3D Spatial Stagger for Cards
+    // 1. Initial Clean Spatial Stagger for Cards
     gsap.set('.bento-card', {
       opacity: 0,
-      y: 60,
-      rotateX: 14,
-      scale: 0.94,
-      transformPerspective: 1200,
-      transformOrigin: '50% 0%',
+      y: 40,
     });
 
-    // 2. Batch trigger as cards enter viewport with smooth 3D unfolding & neon activation
+    // 2. Batch trigger as cards enter viewport with smooth hardware reveal & neon activation
     const batch = ScrollTrigger.batch('.bento-card', {
-      start: 'top 88%',
+      start: 'top 90%',
       once: true,
       onEnter: (batchElements) => {
         gsap.to(batchElements, {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 0.85,
-          stagger: 0.08,
+          duration: 0.7,
+          stagger: 0.06,
           ease: 'power3.out',
           overwrite: true,
           onComplete: () => {
@@ -748,7 +742,7 @@ export default function BentoGrid() {
     const headerTl = gsap.timeline({
       scrollTrigger: {
         trigger: '#about',
-        start: 'top 80%',
+        start: 'top 82%',
         once: true,
       },
     });
@@ -756,26 +750,26 @@ export default function BentoGrid() {
     headerTl
       .fromTo(
         '.bento-header-badge',
-        { opacity: 0, x: -30 },
-        { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out' }
+        { opacity: 0, x: -25 },
+        { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' }
       )
       .fromTo(
         '.bento-header-title',
-        { opacity: 0, y: 35, filter: 'blur(6px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' },
-        '-=0.4'
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        '-=0.3'
       )
       .fromTo(
         '.bento-header-desc',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-        '-=0.5'
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        '-=0.4'
       )
       .fromTo(
         '.bento-header-clock',
-        { opacity: 0, scale: 0.85 },
-        { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' },
-        '-=0.4'
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.5)' },
+        '-=0.3'
       );
 
     return () => {
@@ -784,7 +778,7 @@ export default function BentoGrid() {
     };
   }, []);
 
-  // Spotlight Direct Ref & Animation Frame (Zero React Re-render, Caches Rect to eliminate layout thrashing)
+  // Spotlight Direct Ref (Desktop only, caches rect on resize to eliminate scroll layout thrashing)
   const spotlightRef = useRef(null);
   const rafRef = useRef(null);
   const rectRef = useRef(null);
@@ -797,16 +791,15 @@ export default function BentoGrid() {
     };
     updateRect();
     window.addEventListener('resize', updateRect, { passive: true });
-    window.addEventListener('scroll', updateRect, { passive: true });
     return () => {
       window.removeEventListener('resize', updateRect);
-      window.removeEventListener('scroll', updateRect);
     };
   }, []);
 
-  // Mouse move handler for ambient spotlight - throttled to 60fps with cached rect
+  // Mouse move handler for ambient spotlight - fine pointer only, throttled to 60fps with cached rect
   const handleMouseMove = (e) => {
     if (!gridRef.current || !spotlightRef.current) return;
+    if (window.matchMedia && !window.matchMedia('(pointer: fine)').matches) return;
     if (rafRef.current) return;
 
     rafRef.current = requestAnimationFrame(() => {
@@ -909,11 +902,11 @@ export default function BentoGrid() {
       <div className="absolute inset-0 bg-cyber-grid opacity-40 pointer-events-none z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_96%)]" />
       <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-10 [mask-image:linear-gradient(to_bottom,black_70%,transparent_96%)]" />
 
-      {/* 3. Soft Ambient Light Dissolving from Hero */}
+      {/* 3. Soft Ambient Light Dissolving from Hero (Hardware Accelerated Radial Gradients) */}
       <div className="absolute top-0 inset-x-0 h-56 bg-gradient-to-b from-[#FF6B00]/15 via-amber-500/5 to-transparent pointer-events-none z-10" />
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-64 bg-orange-500/15 rounded-full blur-[160px] pointer-events-none z-10" />
-      <div className="absolute top-1/3 -left-48 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-10" />
-      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-orange-500/[0.03] rounded-full blur-[140px] pointer-events-none z-10" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] h-64 bg-[radial-gradient(ellipse_at_center,rgba(255,107,0,0.12),transparent_70%)] pointer-events-none z-10" />
+      <div className="absolute top-1/3 -left-48 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02),transparent_70%)] pointer-events-none z-10" />
+      <div className="absolute bottom-1/4 -right-48 w-96 h-96 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.03),transparent_70%)] pointer-events-none z-10" />
 
       {/* Section Header */}
       <div className="max-w-7xl mx-auto mb-12 relative z-10">

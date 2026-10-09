@@ -128,12 +128,13 @@ export default function NeuralSynapseBackground() {
     const pCanvas = particleCanvasRef.current;
     if (!canvas || !pCanvas) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const isMobile = window.innerWidth < 768;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.25);
     const w = window.innerWidth;
     const h = window.innerHeight;
 
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
     canvas.style.width = `${w}px`;
     canvas.style.height = `${h}px`;
 
@@ -143,27 +144,31 @@ export default function NeuralSynapseBackground() {
       ctx.imageSmoothingQuality = 'medium';
     }
 
-    pCanvas.width = w * dpr;
-    pCanvas.height = h * dpr;
+    // Particle overlay runs at 1x DPR to eliminate GPU fill-rate overhead
+    pCanvas.width = w;
+    pCanvas.height = h;
     pCanvas.style.width = `${w}px`;
     pCanvas.style.height = `${h}px`;
-
-    const pCtx = pCanvas.getContext('2d');
-    if (pCtx) {
-      pCtx.scale(dpr, dpr);
-    }
 
     renderVideoFrame(currentFrameRef.current);
   };
 
   useEffect(() => {
     let isCancelled = false;
+    let particleRafId = null;
+    let isParticleRunning = false;
 
     // 1. Intersection Observer to enable/disable rendering when #about is in view
     const io = new IntersectionObserver(([entry]) => {
+      const wasVisible = isVisibleRef.current;
       isVisibleRef.current = entry.isIntersecting;
       if (entry.isIntersecting) {
         renderVideoFrame(currentFrameRef.current);
+        if (!wasVisible && !isParticleRunning) {
+          startParticleLoop();
+        }
+      } else {
+        stopParticleLoop();
       }
     }, { threshold: 0.01 });
 
@@ -277,10 +282,9 @@ export default function NeuralSynapseBackground() {
       });
     }
 
-    // 5. Interactive Particle Constellation on particleCanvasRef
+    // 5. Interactive Particle Constellation on particleCanvasRef (Hardware Optimized)
     const pCanvas = particleCanvasRef.current;
     const pCtx = pCanvas ? pCanvas.getContext('2d') : null;
-    let particleRafId = null;
 
     const mouse = { x: -1000, y: -1000, active: false };
 
@@ -299,45 +303,52 @@ export default function NeuralSynapseBackground() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     window.addEventListener('mouseleave', handleMouseLeave, { passive: true });
 
-    // Initialize particle nodes
+    // Initialize particle nodes tuned for 60/120 FPS device performance
     const w = window.innerWidth;
     const h = window.innerHeight;
-    const NODE_COUNT = Math.min(Math.floor(w / 45), 32);
+    const isMobile = w < 768;
+    const NODE_COUNT = isMobile ? 10 : Math.min(Math.floor(w / 75), 18);
     const nodes = [];
 
     for (let i = 0; i < NODE_COUNT; i++) {
       nodes.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        baseRadius: 1.4 + Math.random() * 1.8,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        baseRadius: 1.2 + Math.random() * 1.5,
         pulseSpeed: 0.015 + Math.random() * 0.02,
         pulseOffset: Math.random() * Math.PI * 2,
         color: Math.random() > 0.4 ? '255, 140, 50' : '255, 210, 150',
       });
     }
 
-    // 16 3D Floating Cybernetic Embers drifting upward with subtle amber glow
+    // Floating Cybernetic Embers (10 on mobile, 14 on desktop)
+    const EMBER_COUNT = isMobile ? 8 : 14;
     const embers = [];
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < EMBER_COUNT; i++) {
       embers.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        size: Math.random() * 1.6 + 0.7,
-        vy: -(Math.random() * 0.35 + 0.12),
-        vx: (Math.random() - 0.5) * 0.2,
+        size: Math.random() * 1.4 + 0.6,
+        vy: -(Math.random() * 0.3 + 0.1),
+        vx: (Math.random() - 0.5) * 0.15,
         swaySpeed: Math.random() * 0.02 + 0.01,
         swayOffset: Math.random() * Math.PI * 2,
-        baseAlpha: Math.random() * 0.45 + 0.25,
+        baseAlpha: Math.random() * 0.4 + 0.2,
         color: Math.random() > 0.4 ? '255, 140, 40' : '255, 200, 100',
       });
     }
 
     let pTime = 0;
+    const maxDistance = isMobile ? 80 : 105;
+    const maxDistanceSq = maxDistance * maxDistance;
+    const mouseMaxDistance = 120;
+    const mouseMaxDistanceSq = mouseMaxDistance * mouseMaxDistance;
+
     const renderParticles = () => {
-      if (!isVisibleRef.current) {
-        particleRafId = requestAnimationFrame(renderParticles);
+      if (!isVisibleRef.current || isCancelled) {
+        isParticleRunning = false;
         return;
       }
 
@@ -347,22 +358,21 @@ export default function NeuralSynapseBackground() {
         const curH = window.innerHeight;
         pCtx.clearRect(0, 0, curW, curH);
 
-        // 1. Ambient Holographic Floor Surge (gentle living sweep along the cybernetic grid floor)
+        // 1. Ambient Holographic Floor Surge (gentle sweep along cybernetic grid floor)
         const floorBaseY = curH * 0.72;
-        const surgeCycle = (pTime * 0.003) % 1;
-        const currentSurgeY = floorBaseY + Math.sin(surgeCycle * Math.PI) * (curH * 0.22);
-        const surgeGrad = pCtx.createLinearGradient(0, currentSurgeY - 20, 0, currentSurgeY + 20);
+        const currentSurgeY = floorBaseY + Math.sin(pTime * 0.01) * (curH * 0.14);
+        const surgeGrad = pCtx.createLinearGradient(0, currentSurgeY - 16, 0, currentSurgeY + 16);
         surgeGrad.addColorStop(0, 'rgba(255, 107, 0, 0)');
-        surgeGrad.addColorStop(0.5, 'rgba(255, 140, 50, 0.045)');
+        surgeGrad.addColorStop(0.5, 'rgba(255, 140, 50, 0.035)');
         surgeGrad.addColorStop(1, 'rgba(255, 107, 0, 0)');
         pCtx.fillStyle = surgeGrad;
-        pCtx.fillRect(0, currentSurgeY - 20, curW, 40);
+        pCtx.fillRect(0, currentSurgeY - 16, curW, 32);
 
-        // 2. Render 3D Floating Embers
+        // 2. Render Floating Embers
         for (let i = 0; i < embers.length; i++) {
           const emb = embers[i];
           emb.y += emb.vy;
-          emb.x += emb.vx + Math.sin(pTime * emb.swaySpeed + emb.swayOffset) * 0.25;
+          emb.x += emb.vx + Math.sin(pTime * emb.swaySpeed + emb.swayOffset) * 0.2;
 
           if (emb.y < -10) {
             emb.y = curH + 10;
@@ -374,15 +384,16 @@ export default function NeuralSynapseBackground() {
           if (mouse.active) {
             const edx = emb.x - mouse.x;
             const edy = emb.y - mouse.y;
-            const edist = Math.sqrt(edx * edx + edy * edy);
-            if (edist < 130) {
-              const repel = (1 - edist / 130) * 0.6;
+            const edistSq = edx * edx + edy * edy;
+            if (edistSq < mouseMaxDistanceSq) {
+              const edist = Math.sqrt(edistSq);
+              const repel = (1 - edist / mouseMaxDistance) * 0.5;
               emb.x += (edx / (edist || 1)) * repel;
               emb.y += (edy / (edist || 1)) * repel;
             }
           }
 
-          const emberPulse = Math.sin(pTime * 0.03 + emb.swayOffset) * 0.2;
+          const emberPulse = Math.sin(pTime * 0.03 + emb.swayOffset) * 0.15;
           const eAlpha = Math.max(0, Math.min(1, emb.baseAlpha + emberPulse));
 
           pCtx.beginPath();
@@ -391,9 +402,7 @@ export default function NeuralSynapseBackground() {
           pCtx.fill();
         }
 
-        const maxDistance = 110;
-        const mouseMaxDistance = 140;
-
+        // 3. Render Synaptic Constellation Nodes with Squared-Distance Culling
         for (let i = 0; i < nodes.length; i++) {
           const n = nodes[i];
           n.x += n.vx;
@@ -405,8 +414,8 @@ export default function NeuralSynapseBackground() {
           if (n.y > curH) n.y = 0;
 
           const pulse = Math.sin(pTime * n.pulseSpeed + n.pulseOffset);
-          const radius = n.baseRadius + pulse * 0.5;
-          const alpha = 0.35 + pulse * 0.2;
+          const radius = n.baseRadius + pulse * 0.4;
+          const alpha = 0.32 + pulse * 0.18;
 
           pCtx.beginPath();
           pCtx.arc(n.x, n.y, radius, 0, Math.PI * 2);
@@ -417,15 +426,17 @@ export default function NeuralSynapseBackground() {
             const n2 = nodes[j];
             const dx = n.x - n2.x;
             const dy = n.y - n2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+            const distSq = dx * dx + dy * dy;
 
-            if (dist < maxDistance) {
-              const lineAlpha = (1 - dist / maxDistance) * 0.18;
+            // Squared distance check avoids expensive Math.sqrt calls
+            if (distSq < maxDistanceSq) {
+              const dist = Math.sqrt(distSq);
+              const lineAlpha = (1 - dist / maxDistance) * 0.15;
               pCtx.beginPath();
               pCtx.moveTo(n.x, n.y);
               pCtx.lineTo(n2.x, n2.y);
               pCtx.strokeStyle = `rgba(255, 140, 50, ${lineAlpha})`;
-              pCtx.lineWidth = 0.75;
+              pCtx.lineWidth = 0.65;
               pCtx.stroke();
             }
           }
@@ -433,15 +444,16 @@ export default function NeuralSynapseBackground() {
           if (mouse.active) {
             const mdx = n.x - mouse.x;
             const mdy = n.y - mouse.y;
-            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            const mdistSq = mdx * mdx + mdy * mdy;
 
-            if (mdist < mouseMaxDistance) {
-              const mAlpha = (1 - mdist / mouseMaxDistance) * 0.45;
+            if (mdistSq < mouseMaxDistanceSq) {
+              const mdist = Math.sqrt(mdistSq);
+              const mAlpha = (1 - mdist / mouseMaxDistance) * 0.4;
               pCtx.beginPath();
               pCtx.moveTo(n.x, n.y);
               pCtx.lineTo(mouse.x, mouse.y);
               pCtx.strokeStyle = `rgba(255, 170, 70, ${mAlpha})`;
-              pCtx.lineWidth = 1;
+              pCtx.lineWidth = 0.85;
               pCtx.stroke();
             }
           }
@@ -451,7 +463,24 @@ export default function NeuralSynapseBackground() {
       particleRafId = requestAnimationFrame(renderParticles);
     };
 
-    particleRafId = requestAnimationFrame(renderParticles);
+    const startParticleLoop = () => {
+      if (isParticleRunning || isCancelled) return;
+      isParticleRunning = true;
+      particleRafId = requestAnimationFrame(renderParticles);
+    };
+
+    const stopParticleLoop = () => {
+      isParticleRunning = false;
+      if (particleRafId) {
+        cancelAnimationFrame(particleRafId);
+        particleRafId = null;
+      }
+    };
+
+    // Start particle loop only if section is visible on load
+    if (isVisibleRef.current) {
+      startParticleLoop();
+    }
 
     // Resize Handler
     let lastWidth = window.innerWidth;
@@ -472,7 +501,7 @@ export default function NeuralSynapseBackground() {
         driftTween.scrollTrigger?.kill();
         driftTween.kill();
       }
-      if (particleRafId) cancelAnimationFrame(particleRafId);
+      stopParticleLoop();
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);

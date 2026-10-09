@@ -188,16 +188,14 @@ export default function CinematicShowcase() {
         }
       );
 
-      // 2. Main video monitor 3D unfold
+      // 2. Main video monitor hardware reveal
       gsap.fromTo(
         '.cinematic-monitor-container',
-        { opacity: 0, y: 45, rotateX: 8, scale: 0.96, transformPerspective: 1200 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 0.9,
+          duration: 0.8,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: '.cinematic-monitor-container',
@@ -218,14 +216,12 @@ export default function CinematicShowcase() {
         onEnter: (batchElements) => {
           gsap.fromTo(
             batchElements,
-            { opacity: 0, y: 30, rotateX: 8, scale: 0.95 },
+            { opacity: 0, y: 25 },
             {
               opacity: 1,
               y: 0,
-              rotateX: 0,
-              scale: 1,
-              duration: 0.7,
-              stagger: 0.08,
+              duration: 0.6,
+              stagger: 0.06,
               ease: 'power3.out',
               overwrite: true,
               onComplete: () => {

@@ -167,16 +167,14 @@ export default function ArtisanBeadfitShowcase() {
         }
       );
 
-      // 2. Main video showcase container 3D perspective unfold
+      // 2. Main video showcase container hardware reveal
       gsap.fromTo(
         '.beadfit-showcase-container',
-        { opacity: 0, y: 45, rotateX: 8, scale: 0.96, transformPerspective: 1200 },
+        { opacity: 0, y: 35 },
         {
           opacity: 1,
           y: 0,
-          rotateX: 0,
-          scale: 1,
-          duration: 0.9,
+          duration: 0.8,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: '.beadfit-showcase-container',
@@ -197,14 +195,12 @@ export default function ArtisanBeadfitShowcase() {
         onEnter: (batchElements) => {
           gsap.fromTo(
             batchElements,
-            { opacity: 0, y: 35, rotateX: 8, scale: 0.95 },
+            { opacity: 0, y: 25 },
             {
               opacity: 1,
               y: 0,
-              rotateX: 0,
-              scale: 1,
-              duration: 0.7,
-              stagger: 0.08,
+              duration: 0.6,
+              stagger: 0.06,
               ease: 'power3.out',
               overwrite: true,
               onComplete: () => {
