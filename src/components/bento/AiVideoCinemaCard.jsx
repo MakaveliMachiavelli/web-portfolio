@@ -231,7 +231,7 @@ export default function AiVideoCinemaCard({ clips }) {
               ref={videoRef}
               src={selectedClip.src}
               poster={selectedClip.poster}
-              preload="metadata"
+              preload="none"
               loop
               muted={isVideoMuted}
               playsInline

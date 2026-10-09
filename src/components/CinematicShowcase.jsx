@@ -467,7 +467,7 @@ export default function CinematicShowcase() {
               ref={videoRef}
               src={activeClip.src}
               poster={activeClip.poster}
-              preload="metadata"
+              preload="none"
               loop
               muted={isMuted}
               playsInline

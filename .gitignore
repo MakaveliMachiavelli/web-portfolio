@@ -33,3 +33,5 @@ public/models/
 build.txt
 vite.config.js.timestamp*
 public/artisan beadfit demo.mp4
+
+.vercel

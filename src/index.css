@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Syne';
-    src: url('/Syne-Regular-BF642e31d3934f5.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
 
   html {
     color-scheme: dark;

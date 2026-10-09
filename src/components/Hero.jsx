@@ -151,36 +151,29 @@ export default function Hero() {
       io.observe(containerRef.current);
     }
 
-    const loadInitialBatch = async () => {
+    const loadInitialBatch = () => {
       updateCanvasDimensions();
 
-      const initialPromises = [];
-      for (let i = 1; i <= Math.min(INITIAL_BATCH_SIZE, TOTAL_FRAMES); i++) {
-        initialPromises.push(
-          new Promise((resolve) => {
-            const img = new Image();
-            img.src = `/frames/frame_${String(i).padStart(4, '0')}.webp?v=3`;
-            img.onload = () => {
-              if (!isCancelled) {
-                imagesRef.current[i] = img;
-                if (i === 1) renderFrame(1);
-              }
-              resolve(true);
-            };
-            img.onerror = () => resolve(false);
-          })
-        );
+      // Priority 1: Load Frame 1 immediately and paint with zero delay
+      const frameOne = new Image();
+      frameOne.src = `/frames/frame_0001.webp?v=3`;
+      frameOne.onload = () => {
+        if (!isCancelled) {
+          imagesRef.current[1] = frameOne;
+          setFirstBatchLoaded(true);
+          renderFrame(1);
+        }
+      };
+
+      // Priority 2: Preload next 5 immediate frames for smooth initial touch
+      for (let i = 2; i <= 6; i++) {
+        loadFrame(i);
       }
 
-      await Promise.all(initialPromises);
-
-      if (isCancelled) return;
-      setFirstBatchLoaded(true);
-      renderFrame(1);
-
-      // Preload sparse anchor keyframes in the background
+      // Priority 3: Only when the browser is completely idle (1.5s cooldown),
+      // lazy-load sparse keyframes gently at 2 frames per idle callback
       const keyframes = [];
-      for (let i = INITIAL_BATCH_SIZE + 1; i <= TOTAL_FRAMES; i++) {
+      for (let i = 7; i <= TOTAL_FRAMES; i++) {
         if (i % KEYFRAME_STEP === 1 || i === TOTAL_FRAMES) {
           keyframes.push(i);
         }
@@ -189,19 +182,27 @@ export default function Hero() {
       let kIdx = 0;
       const loadNextKeyframeChunk = () => {
         if (isCancelled || kIdx >= keyframes.length) return;
-        const chunk = keyframes.slice(kIdx, kIdx + 6);
+        const chunk = keyframes.slice(kIdx, kIdx + 2);
         chunk.forEach(f => loadFrame(f));
-        kIdx += 6;
+        kIdx += 2;
         if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
           window.requestIdleCallback(() => {
             if (!isCancelled) loadNextKeyframeChunk();
-          }, { timeout: 200 });
+          }, { timeout: 400 });
         } else {
-          setTimeout(loadNextKeyframeChunk, 80);
+          setTimeout(loadNextKeyframeChunk, 160);
         }
       };
 
-      setTimeout(loadNextKeyframeChunk, 100);
+      setTimeout(() => {
+        if (!isCancelled) {
+          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            window.requestIdleCallback(loadNextKeyframeChunk);
+          } else {
+            loadNextKeyframeChunk();
+          }
+        }
+      }, 1500);
     };
 
     loadInitialBatch();

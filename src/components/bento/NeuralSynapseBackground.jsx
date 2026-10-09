@@ -171,50 +171,67 @@ export default function NeuralSynapseBackground() {
       io.observe(containerRef.current);
     }
 
-    // 2. Preload first frame (Frame 480), final frame (Frame 720), and initial batch immediately
-    updateCanvasDimensions();
+    // 2. Defer continuation frame loading until user actually scrolls towards the section
+    let hasLoadedBatch = false;
+    const triggerBatchLoading = () => {
+      if (hasLoadedBatch || isCancelled) return;
+      hasLoadedBatch = true;
+      updateCanvasDimensions();
 
-    const firstImg = new Image();
-    firstImg.src = `/frames/frame_${String(START_FRAME).padStart(4, '0')}.webp?v=3`;
-    firstImg.onload = () => {
-      if (!isCancelled) {
-        imagesRef.current[START_FRAME] = firstImg;
-        renderVideoFrame(START_FRAME);
+      const firstImg = new Image();
+      firstImg.src = `/frames/frame_${String(START_FRAME).padStart(4, '0')}.webp?v=3`;
+      firstImg.onload = () => {
+        if (!isCancelled) {
+          imagesRef.current[START_FRAME] = firstImg;
+          renderVideoFrame(START_FRAME);
+        }
+      };
+
+      // Preload frame 720 (crystallized floor end state)
+      loadFrame(END_FRAME);
+
+      // Preload next immediate frames gently (481 to 486)
+      for (let i = START_FRAME + 1; i <= Math.min(START_FRAME + 6, END_FRAME); i++) {
+        loadFrame(i);
       }
+
+      // Preload keyframe anchors sparsely
+      const keyframes = [];
+      for (let i = START_FRAME + 7; i <= END_FRAME; i++) {
+        if (i % KEYFRAME_STEP === 0 || i === END_FRAME) {
+          keyframes.push(i);
+        }
+      }
+
+      let kIdx = 0;
+      const loadNextKeyframeChunk = () => {
+        if (isCancelled || kIdx >= keyframes.length) return;
+        const chunk = keyframes.slice(kIdx, kIdx + 2);
+        chunk.forEach(f => loadFrame(f));
+        kIdx += 2;
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+          window.requestIdleCallback(() => {
+            if (!isCancelled) loadNextKeyframeChunk();
+          }, { timeout: 350 });
+        } else {
+          setTimeout(loadNextKeyframeChunk, 150);
+        }
+      };
+
+      setTimeout(loadNextKeyframeChunk, 300);
     };
 
-    // Preload frame 720 immediately so the crystallized floor is always ready for Beadfit & Cinematics
-    loadFrame(END_FRAME);
-
-    // Preload next immediate frames (481 to 495)
-    for (let i = START_FRAME + 1; i <= Math.min(START_FRAME + INITIAL_PRELOAD_COUNT, END_FRAME); i++) {
-      loadFrame(i);
-    }
-
-    // Preload keyframe anchors in background
-    const keyframes = [];
-    for (let i = START_FRAME + INITIAL_PRELOAD_COUNT + 1; i <= END_FRAME; i++) {
-      if (i % KEYFRAME_STEP === 0 || i === END_FRAME) {
-        keyframes.push(i);
+    // Trigger frame loading when user scrolls within 600px of this section
+    const approachIo = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        triggerBatchLoading();
+        approachIo.disconnect();
       }
+    }, { rootMargin: '600px' });
+
+    if (containerRef.current) {
+      approachIo.observe(containerRef.current);
     }
-
-    let kIdx = 0;
-    const loadNextKeyframeChunk = () => {
-      if (isCancelled || kIdx >= keyframes.length) return;
-      const chunk = keyframes.slice(kIdx, kIdx + 5);
-      chunk.forEach(f => loadFrame(f));
-      kIdx += 5;
-      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        window.requestIdleCallback(() => {
-          if (!isCancelled) loadNextKeyframeChunk();
-        }, { timeout: 250 });
-      } else {
-        setTimeout(loadNextKeyframeChunk, 90);
-      }
-    };
-
-    setTimeout(loadNextKeyframeChunk, 150);
 
     // 3. GSAP ScrollTrigger to scrub Frames 480 -> 720 as user scrolls through Bento (#about)
     const frameObj = { frame: START_FRAME };

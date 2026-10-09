@@ -352,7 +352,7 @@ export default function ArtisanBeadfitShowcase() {
               ref={videoRef}
               src="/artisan_beadfit_web.mp4"
               poster="/artisan_beadfit_poster.webp"
-              preload="metadata"
+              preload="none"
               loop
               muted={isMuted}
               playsInline

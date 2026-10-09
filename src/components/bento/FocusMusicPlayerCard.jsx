@@ -92,7 +92,7 @@ export default function FocusMusicPlayerCard() {
       <audio
         ref={audioRef}
         src="/organic_work.mp3"
-        preload="metadata"
+        preload="none"
         onTimeUpdate={handleAudioTimeUpdate}
         onLoadedMetadata={handleAudioLoadedMetadata}
         onEnded={() => setIsPlaying(false)}
