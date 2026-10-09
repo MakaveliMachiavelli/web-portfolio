@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Resume | Admin & Social Media Specialist</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — Admin & Social Media Specialist, Short-Form Video Editor, Performance Creative & Australian Client Operations." />
+  <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
+  
+  <!-- Fonts: Syne, Satoshi & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0e0e14;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.25);
+      --accent-light: #ffa142;
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --tag-border: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Floating Action Bar (hidden on print) */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 12px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--accent-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c33);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Resume Document Wrapper */
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 56px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b00, #f59e0b, #eab308);
+    }
+
+    /* Header Section */
+    .resume-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .name-title h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .name-title .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Executive Summary */
+    .summary-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .skill-card h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-tag {
+      font-size: 11.5px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: #e5e7eb;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* Experience Timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 28px;
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .role-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .role-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-bottom: 6px;
+    }
+
+    .role-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+
+    .role-context {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .role-bullets {
+      list-style-type: none;
+    }
+
+    .role-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 7px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #d1d5db;
+    }
+
+    .role-bullets li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .role-bullets strong {
+      color: #ffffff;
+    }
+
+    /* Highlight Banner for Australian Client Experience */
+    .aus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    /* Tools Pill Cloud */
+    .tools-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-pill {
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 5px 11px;
+      border-radius: 8px;
+      color: #f3f4f6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tool-pill strong {
+      color: var(--accent-light);
+    }
+
+    /* Education & Details */
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 13.5px;
+      margin-bottom: 8px;
+    }
+
+    /* PRINT SPECIFIC STYLES FOR PDF EXPORT */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #111827 !important;
+        padding: 0 !important;
+        font-size: 11pt !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-doc {
+        background: #ffffff !important;
+        color: #111827 !important;
+        border: none !important;
+        padding: 20px 24px !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .resume-doc::before {
+        display: none !important;
+      }
+
+      .name-title h1 {
+        color: #000000 !important;
+        font-size: 24pt !important;
+      }
+
+      .name-title .subtitle {
+        color: #c2410c !important;
+        font-size: 12pt !important;
+      }
+
+      .contact-grid {
+        color: #4b5563 !important;
+        font-size: 9.5pt !important;
+      }
+
+      .contact-item a {
+        color: #111827 !important;
+        text-decoration: none !important;
+      }
+
+      .section-title {
+        color: #000000 !important;
+        border-bottom: 1.5px solid #e5e7eb !important;
+        font-size: 11pt !important;
+      }
+
+      .section-title::before {
+        background: #ea580c !important;
+      }
+
+      .summary-text {
+        color: #374151 !important;
+        font-size: 10pt !important;
+      }
+
+      .skill-card {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+      }
+
+      .skill-card h4 {
+        color: #c2410c !important;
+      }
+
+      .skill-tag {
+        background: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #1f2937 !important;
+      }
+
+      .timeline-item {
+        border-left: 2px solid #d1d5db !important;
+      }
+
+      .timeline-item::before {
+        background: #ea580c !important;
+        box-shadow: none !important;
+      }
+
+      .role-title {
+        color: #000000 !important;
+      }
+
+      .role-company {
+        color: #c2410c !important;
+      }
+
+      .role-meta {
+        color: #6b7280 !important;
+      }
+
+      .role-context {
+        background: #f3f4f6 !important;
+        color: #4b5563 !important;
+        border-left-color: #ea580c !important;
+      }
+
+      .role-bullets li {
+        color: #374151 !important;
+        font-size: 9.5pt !important;
+      }
+
+      .role-bullets li::before {
+        color: #ea580c !important;
+      }
+
+      .role-bullets strong {
+        color: #111827 !important;
+      }
+
+      .aus-badge {
+        background: #ecfdf5 !important;
+        border-color: #10b981 !important;
+        color: #047857 !important;
+      }
+
+      .tool-pill {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        color: #1f2937 !important;
+      }
+
+      .tool-pill strong {
+        color: #c2410c !important;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 12px 60px;
+      }
+      .resume-doc {
+        padding: 30px 20px;
+      }
+      .name-title h1 {
+        font-size: 26px;
+      }
+      .name-title .subtitle {
+        font-size: 14px;
+      }
+      .action-bar {
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Action Bar (hidden when printing) -->
+    <div class="action-bar">
+      <div class="badge-pill">
+        <span class="dot"></span>
+        Targeted for Intogreat Solutions &bull; Retreat Yourself
+      </div>
+      <div class="actions-group">
+        <a href="/" class="btn btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Portfolio
+        </a>
+        <button onclick="window.print()" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          Download / Print PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Resume Card -->
+    <div class="resume-doc">
+      
+      <!-- Header -->
+      <header class="resume-header">
+        <div class="header-top">
+          <div class="name-title">
+            <h1>ALLEN JENUEL OLAVIDEZ</h1>
+            <div class="subtitle">Admin &amp; Social Media Specialist &bull; Short-Form Video &amp; Performance Creative</div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Metro Manila, Philippines (Remote &bull; Australian AEST Aligned)</span>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <a href="https://allenolavidez.vercel.app" target="_blank" rel="noopener">allenolavidez.vercel.app</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://linkedin.com/in/allen-olavidez" target="_blank" rel="noopener">linkedin.com/in/allen-olavidez</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Executive Summary -->
+      <section class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <p class="summary-text">
+          Detail-oriented and high-velocity <span class="summary-highlight">Admin &amp; Social Media Specialist</span> with <span class="summary-highlight">4+ years of enterprise operational discipline</span> and specialized mastery in <span class="summary-highlight">short-form video editing (CapCut Desktop, Adobe Premiere Pro)</span>, founder-led storytelling, and Meta paid advertising creative. Proven track record supporting Australian corporate accounts (<span class="summary-highlight">WNS / NRMA Insurance</span>) with proactive async communication, cultural fluency, and zero-micromanagement reliability. Blends a sharp visual eye for high-retention pacing, scroll-stopping hooks, and Canva brand design with rigorous digital asset management (<span class="summary-highlight">Google Workspace, Notion, Slack</span>) and direct-to-consumer (DTC) e-commerce execution.
+        </p>
+      </section>
+
+      <!-- Core Competencies Matrix -->
+      <section class="section">
+        <h2 class="section-title">Core Competencies &amp; Skills</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-card">
+            <h4>Short-Form Video &amp; Editing</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">CapCut Desktop</span>
+              <span class="skill-tag">Adobe Premiere Pro</span>
+              <span class="skill-tag">Hook &amp; First-Frame Optimization</span>
+              <span class="skill-tag">Pacing &amp; Jump Cuts</span>
+              <span class="skill-tag">9:16 Vertical Framing</span>
+              <span class="skill-tag">Animated Captions</span>
+              <span class="skill-tag">Sound FX &amp; Audio Leveling</span>
+              <span class="skill-tag">Descript</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Organic Social &amp; Founder Content</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Instagram Reels</span>
+              <span class="skill-tag">TikTok</span>
+              <span class="skill-tag">Facebook Content</span>
+              <span class="skill-tag">Founder-Led Stories</span>
+              <span class="skill-tag">UGC Repurposing</span>
+              <span class="skill-tag">Behind-The-Scenes (BTS)</span>
+              <span class="skill-tag">Content Repurposing</span>
+              <span class="skill-tag">Meta Business Suite</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Performance Creative &amp; Meta Ads</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Paid Video Ads (9:16)</span>
+              <span class="skill-tag">Static &amp; Carousel Ads</span>
+              <span class="skill-tag">Hook Variation Testing</span>
+              <span class="skill-tag">First 3-Second Retention</span>
+              <span class="skill-tag">Direct-Response Creative</span>
+              <span class="skill-tag">CTA Optimization</span>
+              <span class="skill-tag">Performance Iteration</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Digital Design &amp; Brand Assets</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Canva Pro</span>
+              <span class="skill-tag">Carousel Graphic Design</span>
+              <span class="skill-tag">Web &amp; Campaign Banners</span>
+              <span class="skill-tag">Brand Consistency</span>
+              <span class="skill-tag">Packaging Inserts &amp; Cards</span>
+              <span class="skill-tag">Product Guides</span>
+              <span class="skill-tag">Adobe Photoshop Basics</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Executive Admin &amp; Operations</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Workspace (Drive/Docs/Sheets)</span>
+              <span class="skill-tag">Notion Knowledge Bases &amp; SOPs</span>
+              <span class="skill-tag">Digital Asset Management (DAM)</span>
+              <span class="skill-tag">Slack Async Updates</span>
+              <span class="skill-tag">24-48h SLA Discipline</span>
+              <span class="skill-tag">Rapid Feedback Turnaround</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>DTC E-Commerce &amp; Australian Ops</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Australian Client Etiquette (WNS)</span>
+              <span class="skill-tag">Direct-to-Consumer (DTC) Brands</span>
+              <span class="skill-tag">Artisan Beadfit E-Commerce</span>
+              <span class="skill-tag">TikTok Shop &amp; Marketplaces</span>
+              <span class="skill-tag">Inventory &amp; Unboxing Ops</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <!-- Role 1: Freelance / AgentLab / Artisan Beadfit -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Social Media Specialist &amp; Creative Operations Lead</span>
+              <div class="role-company">Freelance Creative Operations &bull; AgentLab PH &amp; Artisan Beadfit</div>
+            </div>
+            <div class="role-meta">2024 &ndash; Present | Remote</div>
+          </div>
+          <div class="role-context">
+            Driving short-form video editing, creator content repurposing, and DTC brand operations across Instagram, TikTok, Facebook, and Meta paid advertising.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>High-Retention Video Editing:</strong> Edited over 150+ short-form vertical videos (Reels, TikToks, Shorts) in <strong>CapCut Desktop and Premiere Pro</strong>, implementing dynamic pacing, punch zooms, breath/dead-air removal, and high-converting hooks within the first 3 seconds.</li>
+            <li><strong>Meta Paid Ads Creative:</strong> Produced paid social video, static, and carousel ads for direct-response marketing. Systematically built <strong>creative variations</strong> (testing 3&ndash;5 distinct opening hooks and first-frame text overlays per concept) to maximize ROAS and viewer retention.</li>
+            <li><strong>Founder-Led &amp; UGC Repurposing:</strong> Transformed unedited founder recordings, talking heads, and raw customer-generated content (UGC) into polished brand assets with animated kinetic captions, sound design (whooshes, risers, bass drops), and visual B-roll overlays.</li>
+            <li><strong>Digital &amp; Collateral Design:</strong> Crafted branded carousels, web banners, promotional graphics, and print-ready product inserts in <strong>Canva Pro</strong> strictly adhering to brand guidelines, typography hierarchies, and luxury aesthetic tokens.</li>
+            <li><strong>Creative Asset &amp; File Organization:</strong> Maintained an organized Google Drive taxonomy and Notion production tracker, tagging raw footage, b-roll libraries, scripts, and export iterations to ensure zero confusion and seamless handoffs within a 24&ndash;48 hour SLA.</li>
+            <li><strong>DTC E-Commerce Support:</strong> Led digital store operations for <strong>Artisan Beadfit</strong> (handcrafted wellness/lifestyle accessories), coordinating product listings, unboxing collateral, and multi-channel inventory sync.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2: WNS Global Services (NRMA Australia) -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Customer Operations &amp; Sales Specialist</span>
+              <span class="aus-badge">&#x1F1E6;&#x1F1FA; Australian Client Account</span>
+              <div class="role-company">WNS Global Services &bull; Client: NRMA (Australian General Insurance)</div>
+            </div>
+            <div class="role-meta">2022 &ndash; 2024 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            Servicing Australian policyholders daily on a complex-case voice and digital queue, managing sensitive confidential PII data and strict Australian regulatory compliance.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Australian Cultural &amp; Communication Fluency:</strong> Successfully serviced Australian customers across Sydney, Melbourne, and Brisbane time zones for 2 years, mastering Australian business etiquette, empathy, and collaborative communication norms.</li>
+            <li><strong>Metric Excellence Under Strict SLAs:</strong> Consistently met and exceeded monthly sales and policy retention targets while beating AHT (Average Handle Time) and ACW (After-Call Work) benchmarks through disciplined typing and process mastery.</li>
+            <li><strong>De-escalation &amp; Policy Recovery:</strong> Resolved contested claims and saved at-risk policies through structured objection handling, protecting customer goodwill and brand reputation under pressure.</li>
+            <li><strong>Administrative Precision:</strong> Maintained 100% compliance documentation on client databases with zero privacy violations, adhering strictly to enterprise standard operating procedures (SOPs).</li>
+          </ul>
+        </div>
+
+        <!-- Role 3: TaskUs (DoorDash) -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Customer Support Specialist (AI-Assisted Operations)</span>
+              <div class="role-company">TaskUs &bull; Account: DoorDash</div>
+            </div>
+            <div class="role-meta">2026 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            Frontline customer operations on modern AI-assisted digital ticketing workflows with human-in-the-loop decision authority.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Human-in-the-Loop Quality Assurance:</strong> Evaluated AI-generated responses in real-time, catching context errors, inaccurate suggestions, and tone inconsistencies prior to customer delivery.</li>
+            <li><strong>Rapid Ticket Resolution:</strong> De-escalated merchant, customer, and driver issues in real-time, maintaining top-quartile CSAT (Customer Satisfaction) and first-contact resolution rates.</li>
+          </ul>
+        </div>
+
+        <!-- Role 4: Concentrix (Citi Collections) -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Collections &amp; Compliance Specialist (Tier 2 &rarr; Tier 1)</span>
+              <div class="role-company">Concentrix &bull; Account: Citi</div>
+            </div>
+            <div class="role-meta">2020 &ndash; 2021 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            High-compliance outbound financial dispute resolution and structured repayment scheduling.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Accelerated Promotion:</strong> Promoted from Tier 2 to Tier 1 within 6 months based on top-ranking liquidation rates and ethical negotiation quality.</li>
+            <li><strong>Dispute Resolution:</strong> De-escalated contentious financial discussions into constructive payment agreements while preserving long-term customer relationships.</li>
+          </ul>
+        </div>
+
+        <!-- Role 5: Mobilia Fabrica -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Operations &amp; Production Lead</span>
+              <div class="role-company">Mobilia Fabrica (Custom Furniture &amp; Lifestyle Goods)</div>
+            </div>
+            <div class="role-meta">2016 &ndash; 2020 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            Coordinating workshop production schedules, custom specifications, material sourcing, and end-to-end client handoffs.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Operations Systemization:</strong> Coordinated 10&ndash;30 concurrent bespoke orders monthly across a 6&ndash;15 person workshop, architecting quotation sheets and delivery tracking that reduced order errors by 25%.</li>
+            <li><strong>Client &amp; Supplier Management:</strong> Managed client expectations from initial design consultation to final delivery, ensuring top satisfaction and repeat business.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- Featured Projects & Portfolio Proof -->
+      <section class="section">
+        <h2 class="section-title">Portfolio Showcase &amp; Verification</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-card">
+            <h4>Live Interactive Portfolio</h4>
+            <p style="font-size: 13px; color: #d1d5db; margin-bottom: 6px;">
+              Designed and deployed a 60 FPS interactive web showcase featuring video scrubbers, audio bridges, and real-time operational Bento grids.
+            </p>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+              <a href="https://allenolavidez.vercel.app" target="_blank" rel="noopener">allenolavidez.vercel.app</a>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Artisan Beadfit (DTC Customizer)</h4>
+            <p style="font-size: 13px; color: #d1d5db; margin-bottom: 6px;">
+              Full-featured e-commerce customizer with real-time geometric bracelet visualization, dynamic bead capacity limits, and instant price calculations.
+            </p>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+              <a href="https://allenolavidez.vercel.app/#web-apps" target="_blank" rel="noopener">Interactive Live Demo</a>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Short-Form Video Pipelines</h4>
+            <p style="font-size: 13px; color: #d1d5db; margin-bottom: 6px;">
+              Tested and compared video pacing, subtitle readability, and hook retention using side-by-side benchmark testing for social content.
+            </p>
+            <div class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+              <a href="https://allenolavidez.vercel.app/#about" target="_blank" rel="noopener">View Video Systems</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Technical & Creative Tool Stack -->
+      <section class="section">
+        <h2 class="section-title">Technical &amp; Creative Tool Stack</h2>
+        <div class="tools-cloud">
+          <div class="tool-pill"><strong>Video Editing:</strong> CapCut Desktop, Adobe Premiere Pro, Descript, Remotion</div>
+          <div class="tool-pill"><strong>Design &amp; Collateral:</strong> Canva Pro, Adobe Photoshop, Figma</div>
+          <div class="tool-pill"><strong>Social Media &amp; Ads:</strong> Meta Business Suite, TikTok Creator Studio, Instagram Reels, YouTube Studio</div>
+          <div class="tool-pill"><strong>Administration &amp; DAM:</strong> Google Workspace (Drive, Docs, Sheets), Notion, Slack, Zoom, Loom</div>
+          <div class="tool-pill"><strong>E-Commerce &amp; Ops:</strong> Shopify / DTC Workflows, TikTok Shop, Shopee, Lazada, Zendesk</div>
+        </div>
+      </section>
+
+      <!-- Education & Availability -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education &amp; Work Availability</h2>
+        <div class="education-item">
+          <div>
+            <strong>Undergraduate Coursework (Higher Education)</strong> &bull; Metro Manila, Philippines
+          </div>
+          <div class="role-meta">Completed coursework in business &amp; tech fundamentals</div>
+        </div>
+        <div class="education-item" style="margin-top: 10px;">
+          <div>
+            <strong style="color: var(--accent-light);">Work Setup &amp; Availability:</strong> Remote &bull; Fully equipped home workstation (high-speed fiber, backup power, HD webcam &amp; studio mic) &bull; Immediately available for full-time schedule aligned with Australian (AEST) or Manila business hours.
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>
