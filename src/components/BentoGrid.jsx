@@ -23,6 +23,7 @@ import {
   Activity,
   ArrowRight,
   ArrowDown,
+  Loader2,
   Briefcase,
   Globe,
   Headphones,
@@ -701,6 +702,8 @@ export default function BentoGrid() {
 
   // Form State
   const [message, setMessage] = useState('');
+  const [senderEmail, setSenderEmail] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedContact, setCopiedContact] = useState(false);
   const [copiedDraft, setCopiedDraft] = useState(false);
@@ -819,15 +822,46 @@ export default function BentoGrid() {
     });
   };
 
-  // Form Submit Handler: opens native mail client with prefilled inquiry
-  const handleFormSubmit = (e) => {
+  // Form Submit Handler: delivers directly to Allen's inbox via Web3Forms with automatic mailto fallback
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const trimmed = message.trim();
     if (!trimmed) return;
-    setIsSubmitted(true);
-    const subject = encodeURIComponent(`Project Inquiry: ${selectedRole.label}`);
-    const body = encodeURIComponent(trimmed);
-    window.location.href = `mailto:allenolavidez@gmail.com?subject=${subject}&body=${body}`;
+    setIsSending(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("access_key", "a628955e-3d7b-46c0-8c26-2a85cf974714");
+      formData.append("name", "Portfolio Visitor");
+      formData.append("email", senderEmail.trim() || "visitor@portfolio.dev");
+      formData.append("subject", `New Inquiry: ${selectedRole.label}`);
+      formData.append("message", trimmed);
+      formData.append("from_name", "Allen Portfolio Web Form");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        // Fallback to mailto if submission fails
+        const subject = encodeURIComponent(`Project Inquiry: ${selectedRole.label}`);
+        const body = encodeURIComponent(trimmed);
+        window.location.href = `mailto:allenolavidez@gmail.com?subject=${subject}&body=${body}`;
+        setIsSubmitted(true);
+      }
+    } catch {
+      // Network fallback to mailto
+      const subject = encodeURIComponent(`Project Inquiry: ${selectedRole.label}`);
+      const body = encodeURIComponent(trimmed);
+      window.location.href = `mailto:allenolavidez@gmail.com?subject=${subject}&body=${body}`;
+      setIsSubmitted(true);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleCopyDraft = () => {
@@ -1120,8 +1154,18 @@ export default function BentoGrid() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleFormSubmit}
-                  className="flex flex-col sm:flex-row gap-3 w-full"
+                  className="flex flex-col md:flex-row gap-2.5 w-full"
                 >
+                  <input
+                    id="email-input"
+                    name="email"
+                    type="email"
+                    value={senderEmail}
+                    onChange={(e) => setSenderEmail(e.target.value)}
+                    placeholder="Your email (so Allen can reply)..."
+                    className="w-full md:w-60 px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-neutral-500 text-xs sm:text-sm focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
+                    required
+                  />
                   <div className="relative flex-1">
                     <input
                       id="message-input"
@@ -1130,16 +1174,26 @@ export default function BentoGrid() {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Send a project inquiry, opportunity, or note to Allen..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-neutral-500 text-xs sm:text-sm focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-neutral-500 text-xs sm:text-sm focus:outline-none focus:border-white/30 focus:bg-white/[0.06] transition-all"
                       required
                     />
                   </div>
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs sm:text-sm active:scale-95 transition-all shrink-0 cursor-pointer shadow-md"
+                    disabled={isSending}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-white hover:bg-neutral-200 text-black font-semibold text-xs sm:text-sm active:scale-95 disabled:opacity-50 transition-all shrink-0 cursor-pointer shadow-md"
                   >
-                    <span>Connect</span>
-                    <Send className="w-3.5 h-3.5" />
+                    {isSending ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Connect</span>
+                        <Send className="w-3.5 h-3.5" />
+                      </>
+                    )}
                   </button>
                 </motion.form>
               ) : (
@@ -1153,7 +1207,7 @@ export default function BentoGrid() {
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     <p className="text-xs sm:text-sm text-emerald-200 font-medium">
-                      Inquiry prepared! Launching your email composer for Allen.
+                      Delivered directly to Allen's inbox (allenolavidez@gmail.com)!
                     </p>
                   </div>
                   <div className="flex items-center gap-2 shrink-0">
