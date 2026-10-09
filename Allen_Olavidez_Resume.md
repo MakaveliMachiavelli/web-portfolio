@@ -30,7 +30,7 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 ### SOCIAL MEDIA SPECIALIST & CREATIVE OPERATIONS LEAD
 **Freelance Creative Operations | AgentLab PH & Artisan Beadfit**  
 *2024 – Present | Remote*
-- **High-Retention Short-Form Video:** Edited 150+ short-form vertical videos (Reels, TikToks, Shorts) in **CapCut Desktop and Premiere Pro**, executing jump cuts, punch zooms, breath/dead-air removal, and high-converting hooks within the first 3 seconds to maximize audience retention.
+- **High-Retention Short-Form Video:** Edited short-form vertical videos (Reels, TikToks, Shorts) in **CapCut Desktop and Premiere Pro**, executing jump cuts, punch zooms, breath/dead-air removal, and high-converting hooks within the first 3 seconds to maximize audience retention.
 - **Performance Marketing & Creative Iteration:** Developed paid social video, static, and carousel ads for Meta. Systematically built **creative variations** (testing 3–5 distinct opening hooks and first-frame angles per concept) to optimize click-through rate and viewer retention.
 - **Founder-Led & UGC Repurposing:** Transformed unedited founder recordings, talking heads, and raw customer-generated content (UGC) into polished brand assets featuring animated kinetic captions, sound effects (whooshes, risers, bass drops), and visual B-roll overlays.
 - **Digital Design & Collateral:** Crafted branded carousels, web banners, promotional graphics, and print-ready product inserts in **Canva Pro**, strictly adhering to brand guidelines, typography hierarchies, and aesthetic consistency.
@@ -68,7 +68,7 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 ## SELECTED PRODUCTION BUILDS & CASE STUDIES
 
 - **Artisan Beadfit (DTC E-Commerce Customizer & Store Ops):** Built and deployed an interactive DTC customizer for handcrafted wellness bracelets featuring real-time geometric bead visualization, dynamic wrist sizing logic, and live price calculations. Integrated packaging inserts, unboxing collateral, and multi-store inventory sync across TikTok Shop and marketplaces.
-- **High-Retention Video & Performance Creative Engine:** Developed an end-to-end short-form vertical video production pipeline (150+ assets) in CapCut Desktop and Premiere Pro. Systematically built and tested 3–5 opening hook variations and first-frame angles per concept for Meta paid ads to maximize viewer retention and click-through rates.
+- **High-Retention Video & Performance Creative Engine:** Developed an end-to-end short-form vertical video production pipeline in CapCut Desktop and Premiere Pro. Systematically built and tested 3–5 opening hook variations and first-frame angles per concept for Meta paid ads to maximize viewer retention and click-through rates.
 - **AgentLab PH (Programmatic Media & Publishing Pipeline):** Engineered an automated 9:16 vertical video production engine utilizing Remotion code-rendered kinetic typography, neural voice synthesis (Kokoro TTS), and automated subtitle synchronization, establishing automated scheduling queues across Instagram Reels and Facebook.
 *(Interactive live demos, video case studies, and operational workflows are featured on the live portfolio: [allenolavidez.vercel.app](https://allenolavidez.vercel.app))*
 
