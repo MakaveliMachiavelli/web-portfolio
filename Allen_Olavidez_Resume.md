@@ -9,7 +9,7 @@ Muntinlupa City, Metro Manila, Philippines (Remote | Aligned with Australian AES
 ---
 
 ## PROFESSIONAL SUMMARY
-Detail-oriented and high-velocity **Admin & Social Media Specialist** with an academic foundation in **Information Technology (BSIT, South Mansfield College)** and **4+ years of enterprise operational discipline** across regulated client accounts (**WNS / NRMA Insurance Australia**, TaskUs DoorDash, Concentrix Citi). Specializes in **short-form video editing (CapCut Desktop, Adobe Premiere Pro)**, founder-led storytelling, and Meta paid advertising creative. Combines technical systems thinking and data-informed retention pacing with Canva brand design, disciplined digital asset management (**Google Workspace, Notion, Slack**), and direct-to-consumer (DTC) e-commerce execution.
+Detail-oriented and high-velocity **Admin & Social Media Specialist** with an academic foundation in **Information Technology (BSIT, South Mansfield College)** and **4+ years of enterprise operational discipline** across regulated client accounts (**WNS / NRMA Insurance Australia**, TaskUs DoorDash, Concentrix Citi). Currently employed at **TaskUs (DoorDash account, 2026–Present)** while managing ongoing freelance creator brands, bringing specialized capabilities in **short-form video editing (CapCut Desktop, Adobe Premiere Pro)**, founder-led storytelling, and Meta paid advertising creative. Combines technical systems thinking with disciplined digital asset management (**Google Workspace, Notion, Slack**), DTC e-commerce execution, and full readiness for **Australian (AEST) schedule transition**.
 
 ---
 
@@ -37,6 +37,13 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 - **Digital Asset Management (DAM):** Maintained an organized Google Drive taxonomy and Notion production tracker, tagging raw footage, b-roll libraries, scripts, and export iterations to ensure zero confusion and seamless team handoffs within a 24–48 hour turnaround SLA.
 - **DTC E-Commerce Support:** Led digital store operations for **Artisan Beadfit** (handcrafted wellness/lifestyle accessories), overseeing product listing accuracy, unboxing collateral, and multi-channel inventory sync.
 
+### CUSTOMER SUPPORT SPECIALIST (AI-ASSISTED OPERATIONS)
+**TaskUs | Account: DoorDash**  
+*2026 – Present (Current Employment) | Metro Manila / Hybrid*
+- **Human-in-the-Loop Quality Assurance:** Evaluate AI-generated customer responses in real-time, catching context errors, inaccurate suggestions, and tone inconsistencies prior to customer delivery.
+- **Rapid Ticket Resolution & Merchant Support:** De-escalate merchant, customer, and driver issues across live digital queues, maintaining top-quartile CSAT (Customer Satisfaction) and first-contact resolution rates.
+- **Employment Standing & Transition Notice:** Currently employed in active standing; fully prepared to coordinate standard notice and transition smoothly into a dedicated full-time schedule aligned with Australian (AEST) business hours.
+
 ### CUSTOMER OPERATIONS & SALES SPECIALIST (AUSTRALIAN GENERAL INSURANCE)
 **WNS Global Services | Client: NRMA Insurance (Australia)**  
 *2022 – 2024 | Metro Manila, Philippines*
@@ -44,12 +51,6 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 - **Metric Excellence Under Strict SLAs:** Consistently met and exceeded monthly sales and policy retention targets while beating AHT (Average Handle Time) and ACW (After-Call Work) benchmarks through disciplined typing and process mastery.
 - **De-escalation & Policy Recovery:** Resolved contested claims and saved at-risk policies through structured objection handling, protecting customer goodwill and brand reputation under pressure.
 - **Administrative Precision:** Maintained 100% compliance documentation on client databases with zero privacy violations, adhering strictly to enterprise standard operating procedures (SOPs).
-
-### CUSTOMER SUPPORT SPECIALIST (AI-ASSISTED OPERATIONS)
-**TaskUs | Account: DoorDash**  
-*2024 – 2026 | Metro Manila, Philippines*
-- **Human-in-the-Loop Quality Assurance:** Evaluated AI-generated customer responses in real-time, catching context errors, inaccurate suggestions, and tone inconsistencies prior to customer delivery.
-- **Rapid Ticket Resolution:** De-escalated merchant, customer, and driver issues in real-time, maintaining top-quartile CSAT (Customer Satisfaction) and first-contact resolution rates.
 
 ### COLLECTIONS & COMPLIANCE SPECIALIST (TIER 2 → TIER 1)
 **Concentrix | Account: Citi**  
