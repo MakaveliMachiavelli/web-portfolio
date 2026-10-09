@@ -65,14 +65,12 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 
 ---
 
-## FEATURED PORTFOLIO PROJECTS
+## SELECTED PRODUCTION BUILDS & CASE STUDIES
 
-- **Live Interactive Portfolio:** [allenolavidez.vercel.app](https://allenolavidez.vercel.app)  
-  *Engineered a 60 FPS interactive showcase with video scrubbers, audio bridges, and operational Bento workflows demonstrating technical fluency, aesthetic judgment, and executive reliability.*
-- **Artisan Beadfit (DTC E-Commerce Customizer):** [allenolavidez.vercel.app/#web-apps](https://allenolavidez.vercel.app/#web-apps)  
-  *Full-featured e-commerce customizer with real-time geometric bracelet visualization, dynamic bead capacity limits, and instant price calculations.*
-- **Short-Form Video & Creative Pipelines:** [allenolavidez.vercel.app/#about](https://allenolavidez.vercel.app/#about)  
-  *Documented side-by-side video benchmark workflows comparing video pacing, subtitle readability, and hook retention for social media channels.*
+- **Artisan Beadfit (DTC E-Commerce Customizer & Store Ops):** Built and deployed an interactive DTC customizer for handcrafted wellness bracelets featuring real-time geometric bead visualization, dynamic wrist sizing logic, and live price calculations. Integrated packaging inserts, unboxing collateral, and multi-store inventory sync across TikTok Shop and marketplaces.
+- **High-Retention Video & Performance Creative Engine:** Developed an end-to-end short-form vertical video production pipeline (150+ assets) in CapCut Desktop and Premiere Pro. Systematically built and tested 3–5 opening hook variations and first-frame angles per concept for Meta paid ads to maximize viewer retention and click-through rates.
+- **AgentLab PH (Programmatic Media & Publishing Pipeline):** Engineered an automated 9:16 vertical video production engine utilizing Remotion code-rendered kinetic typography, neural voice synthesis (Kokoro TTS), and automated subtitle synchronization, establishing automated scheduling queues across Instagram Reels and Facebook.
+*(Interactive live demos, video case studies, and operational workflows are featured on the live portfolio: [allenolavidez.vercel.app](https://allenolavidez.vercel.app))*
 
 ---
 
