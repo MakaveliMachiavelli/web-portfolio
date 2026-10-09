@@ -1,14 +1,15 @@
 # ALLEN JENUEL OLAVIDEZ
 **Admin & Social Media Specialist | Short-Form Video & Performance Creative**
-Metro Manila, Philippines (Remote | Aligned with Australian AEST Business Hours)
+Muntinlupa City, Metro Manila, Philippines (Remote | Aligned with Australian AEST Business Hours)
 - **Email:** allenolavidez@gmail.com
 - **Live Portfolio:** [allenolavidez.vercel.app](https://allenolavidez.vercel.app)
+- **Live Resume:** [allenolavidez.vercel.app/resume](https://allenolavidez.vercel.app/resume)
 - **LinkedIn:** [linkedin.com/in/allen-olavidez](https://linkedin.com/in/allen-olavidez)
 
 ---
 
 ## PROFESSIONAL SUMMARY
-Detail-oriented and high-velocity **Admin & Social Media Specialist** with **4+ years of enterprise operational discipline** and specialized expertise in **short-form video editing (CapCut Desktop, Adobe Premiere Pro)**, founder-led storytelling, and Meta paid advertising creative. Proven track record supporting Australian corporate client accounts (**WNS / NRMA Insurance**) with proactive async communication, cultural fluency, and zero-micromanagement reliability. Blends a sharp visual eye for high-retention pacing, scroll-stopping hooks, and Canva brand design with disciplined digital asset management (**Google Workspace, Notion, Slack**) and direct-to-consumer (DTC) e-commerce workflow.
+Detail-oriented and high-velocity **Admin & Social Media Specialist** with an academic foundation in **Information Technology (BSIT, South Mansfield College)** and **4+ years of enterprise operational discipline** across regulated client accounts (**WNS / NRMA Insurance Australia**, TaskUs DoorDash, Concentrix Citi). Specializes in **short-form video editing (CapCut Desktop, Adobe Premiere Pro)**, founder-led storytelling, and Meta paid advertising creative. Combines technical systems thinking and data-informed retention pacing with Canva brand design, disciplined digital asset management (**Google Workspace, Notion, Slack**), and direct-to-consumer (DTC) e-commerce execution.
 
 ---
 
@@ -19,6 +20,7 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with **4+ 
 - **Performance Marketing & Creative Strategy:** Paid Social Video Ads (9:16), Static & Carousel Ad Formats, Creative Variation Testing (Hooks, Angles, CTAs), Direct-Response Principles, First 3-Second Retention, Performance Iteration.
 - **Digital Design & Brand Consistency:** Canva Pro, Carousel Graphic Design, Web & Campaign Banners, Brand Guidelines Adherence, Packaging Inserts & Box Collateral Design, Product Guides, Photoshop Basics.
 - **Executive Admin & Operations:** Google Workspace (Drive, Docs, Sheets), Notion Knowledge Bases & SOPs, Slack Async Updates, Digital Asset Management (DAM), Strict SLA Adherence (24–48h Delivery), Rapid Feedback Responsiveness.
+- **IT & Technical Systems:** South Mansfield College BSIT Foundation, Web Development (HTML5, CSS3, JavaScript), React & Vite Customizers, API & Webhook Integrations, Remotion Code-Rendered Video, Technical Troubleshooting & QA.
 - **DTC E-Commerce & Australian Ops:** Australian Client Communication Etiquette (2 years at WNS for NRMA Insurance), Direct-to-Consumer (DTC) Brand Operations, Artisan Beadfit E-Commerce Customizer, Marketplace Operations (TikTok Shop, Shopee, Lazada).
 
 ---
@@ -45,7 +47,7 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with **4+ 
 
 ### CUSTOMER SUPPORT SPECIALIST (AI-ASSISTED OPERATIONS)
 **TaskUs | Account: DoorDash**  
-*2026 | Metro Manila, Philippines*
+*2024 – 2026 | Metro Manila, Philippines*
 - **Human-in-the-Loop Quality Assurance:** Evaluated AI-generated customer responses in real-time, catching context errors, inaccurate suggestions, and tone inconsistencies prior to customer delivery.
 - **Rapid Ticket Resolution:** De-escalated merchant, customer, and driver issues in real-time, maintaining top-quartile CSAT (Customer Satisfaction) and first-contact resolution rates.
 
@@ -80,12 +82,25 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with **4+ 
 - **Design & Creative:** Canva Pro, Adobe Photoshop, Figma
 - **Social Media & Ads:** Meta Business Suite, TikTok Creator Studio, Instagram Reels, YouTube Studio
 - **Administration & DAM:** Google Workspace (Drive, Docs, Sheets), Notion, Slack, Zoom, Loom, Microsoft 365
+- **IT & Web Systems:** HTML5, CSS3, JavaScript, React, Vite, Webhooks, API Integration
 - **E-Commerce & Operations:** Shopify / DTC Workflows, TikTok Shop, Shopee, Lazada, Zendesk
 - **AI & Modern Productivity:** OpenAI / ChatGPT, Claude, Midjourney, ElevenLabs
 
 ---
 
-## EDUCATION & AVAILABILITY
+## EDUCATION & TECHNICAL FOUNDATION
 
-- **Higher Education:** Undergraduate Coursework (Higher Education Studies) — Metro Manila, Philippines
-- **Work Setup & Availability:** Remote | Fully equipped home workstation (high-speed fiber, backup power, HD webcam & studio mic) | Immediately available for full-time schedule aligned with Australian (AEST) or Philippine business hours.
+### SOUTH MANSFIELD COLLEGE
+**Bachelor of Science in Information Technology (BSIT)**  
+*Muntinlupa City, Metro Manila | Completed 3 Years (Undergraduate Senior Standing)*
+- **Coursework & Foundation:** Completed 3 full years of foundational and advanced Information Technology coursework covering Computer Programming & Logic Formulation, Database Management Systems, Web Development, Systems Analysis & Design, and Operating Systems.
+- **Application to Operations:** Applied IT principles directly to real-world production systems: building interactive React web applications, Remotion code-rendered video pipelines, and high-efficiency database workflows.
+
+---
+
+## REMOTE WORKSTATION SETUP & AVAILABILITY
+
+- **Connectivity & Redundancy:** Primary high-speed fiber broadband (300+ Mbps) backed by secondary 5G mobile hotspot redundancy for seamless 4K/1080p asset syncing, real-time client communication, and zero-drop video meetings.
+- **Hardware & Audio:** High-performance multi-monitor editing workstation optimized for CapCut Desktop and Premiere Pro rendering, studio-grade condenser microphone, and 1080p HD webcam in a quiet home office.
+- **Power Reliability:** Equipped with dedicated Uninterruptible Power Supply (UPS) backup ensuring 100% operational uptime and project security.
+- **Work Schedule & Time Zones:** **Immediate full-time availability (40+ hrs/wk)** aligned with **Australian Eastern Standard Time (AEST / AEDT)** or Philippine Standard Time (PST).

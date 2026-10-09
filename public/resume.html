@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Allen Olavidez — Resume | Admin & Social Media Specialist</title>
-  <meta name="description" content="Resume of Allen Jenuel Olavidez — Admin & Social Media Specialist, Short-Form Video Editor, Performance Creative & Australian Client Operations." />
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — Admin & Social Media Specialist, Short-Form Video Editor, Performance Creative, BSIT (South Mansfield College), and Australian Client Operations." />
   <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
   
   <!-- Fonts: Syne, Satoshi & Inter -->
@@ -134,6 +134,25 @@
       border-color: rgba(255, 255, 255, 0.2);
     }
 
+    /* Toast notification */
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
     /* Resume Document Wrapper */
     .resume-doc {
       background: var(--card-bg);
@@ -191,7 +210,7 @@
     .contact-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px 24px;
+      gap: 14px 22px;
       margin-top: 16px;
       font-size: 13px;
       color: var(--text-muted);
@@ -404,6 +423,14 @@
       margin-left: 6px;
     }
 
+    /* Education Card */
+    .education-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 22px;
+    }
+
     /* Tools Pill Cloud */
     .tools-cloud {
       display: flex;
@@ -427,16 +454,6 @@
       color: var(--accent-light);
     }
 
-    /* Education & Details */
-    .education-item {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 13.5px;
-      margin-bottom: 8px;
-    }
-
     /* PRINT SPECIFIC STYLES FOR PDF EXPORT */
     @media print {
       body {
@@ -446,7 +463,7 @@
         font-size: 11pt !important;
       }
 
-      .action-bar {
+      .action-bar, #copy-toast {
         display: none !important;
       }
 
@@ -501,6 +518,8 @@
       .skill-card {
         background: #f9fafb !important;
         border: 1px solid #e5e7eb !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
 
       .skill-card h4 {
@@ -515,6 +534,8 @@
 
       .timeline-item {
         border-left: 2px solid #d1d5db !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
 
       .timeline-item::before {
@@ -557,6 +578,13 @@
         background: #ecfdf5 !important;
         border-color: #10b981 !important;
         color: #047857 !important;
+      }
+
+      .education-card {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
 
       .tool-pill {
@@ -609,6 +637,10 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           Back to Portfolio
         </a>
+        <button onclick="copyEmail()" class="btn btn-secondary" title="Copy allenolavidez@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          Copy Email
+        </button>
         <button onclick="window.print()" class="btn btn-primary">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
           Download / Print PDF
@@ -631,7 +663,7 @@
         <div class="contact-grid">
           <div class="contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Metro Manila, Philippines (Remote &bull; Australian AEST Aligned)</span>
+            <span>Muntinlupa City, Metro Manila, Philippines (Remote &bull; Australian AEST Aligned)</span>
           </div>
           <div class="contact-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -645,6 +677,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
             <a href="https://linkedin.com/in/allen-olavidez" target="_blank" rel="noopener">linkedin.com/in/allen-olavidez</a>
           </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span style="color: var(--accent-light);">South Mansfield College &bull; BSIT (3 Years Completed)</span>
+          </div>
         </div>
       </header>
 
@@ -652,7 +688,7 @@
       <section class="section">
         <h2 class="section-title">Executive Summary</h2>
         <p class="summary-text">
-          Detail-oriented and high-velocity <span class="summary-highlight">Admin &amp; Social Media Specialist</span> with <span class="summary-highlight">4+ years of enterprise operational discipline</span> and specialized mastery in <span class="summary-highlight">short-form video editing (CapCut Desktop, Adobe Premiere Pro)</span>, founder-led storytelling, and Meta paid advertising creative. Proven track record supporting Australian corporate accounts (<span class="summary-highlight">WNS / NRMA Insurance</span>) with proactive async communication, cultural fluency, and zero-micromanagement reliability. Blends a sharp visual eye for high-retention pacing, scroll-stopping hooks, and Canva brand design with rigorous digital asset management (<span class="summary-highlight">Google Workspace, Notion, Slack</span>) and direct-to-consumer (DTC) e-commerce execution.
+          Detail-oriented and high-velocity <span class="summary-highlight">Admin &amp; Social Media Specialist</span> with an academic foundation in <span class="summary-highlight">Information Technology (BSIT, South Mansfield College)</span> and <span class="summary-highlight">4+ years of enterprise operational discipline</span> across regulated client accounts (<span class="summary-highlight">WNS / NRMA Insurance Australia</span>, TaskUs DoorDash, Concentrix Citi). Specializes in <span class="summary-highlight">short-form video editing (CapCut Desktop, Adobe Premiere Pro)</span>, founder-led storytelling, and Meta paid advertising creative. Combines technical systems thinking and data-informed retention pacing with Canva brand design, disciplined digital asset management (<span class="summary-highlight">Google Workspace, Notion, Slack</span>), and direct-to-consumer (DTC) e-commerce execution.
         </p>
       </section>
 
@@ -728,13 +764,14 @@
           </div>
 
           <div class="skill-card">
-            <h4>DTC E-Commerce &amp; Australian Ops</h4>
+            <h4>IT &amp; Technical Systems</h4>
             <div class="skill-tags">
-              <span class="skill-tag">Australian Client Etiquette (WNS)</span>
-              <span class="skill-tag">Direct-to-Consumer (DTC) Brands</span>
-              <span class="skill-tag">Artisan Beadfit E-Commerce</span>
-              <span class="skill-tag">TikTok Shop &amp; Marketplaces</span>
-              <span class="skill-tag">Inventory &amp; Unboxing Ops</span>
+              <span class="skill-tag">South Mansfield College BSIT</span>
+              <span class="skill-tag">Web Development (HTML/CSS/JS)</span>
+              <span class="skill-tag">React &amp; Vite Customizers</span>
+              <span class="skill-tag">API &amp; Webhook Integration</span>
+              <span class="skill-tag">Remotion Code Video</span>
+              <span class="skill-tag">Database Concepts &amp; QA</span>
             </div>
           </div>
 
@@ -795,7 +832,7 @@
               <span class="role-title">Customer Support Specialist (AI-Assisted Operations)</span>
               <div class="role-company">TaskUs &bull; Account: DoorDash</div>
             </div>
-            <div class="role-meta">2026 | Metro Manila</div>
+            <div class="role-meta">2024 &ndash; 2026 | Metro Manila</div>
           </div>
           <div class="role-context">
             Frontline customer operations on modern AI-assisted digital ticketing workflows with human-in-the-loop decision authority.
@@ -889,32 +926,92 @@
       <section class="section">
         <h2 class="section-title">Technical &amp; Creative Tool Stack</h2>
         <div class="tools-cloud">
-          <div class="tool-pill"><strong>Video Editing:</strong> CapCut Desktop, Adobe Premiere Pro, Descript, Remotion</div>
+          <div class="tool-pill"><strong>Video Editing:</strong> CapCut Desktop, Adobe Premiere Pro, Descript, Remotion 4.0</div>
           <div class="tool-pill"><strong>Design &amp; Collateral:</strong> Canva Pro, Adobe Photoshop, Figma</div>
           <div class="tool-pill"><strong>Social Media &amp; Ads:</strong> Meta Business Suite, TikTok Creator Studio, Instagram Reels, YouTube Studio</div>
           <div class="tool-pill"><strong>Administration &amp; DAM:</strong> Google Workspace (Drive, Docs, Sheets), Notion, Slack, Zoom, Loom</div>
+          <div class="tool-pill"><strong>IT &amp; Web Systems:</strong> HTML5, CSS3, JavaScript, React, Vite, Webhooks, API Integration</div>
           <div class="tool-pill"><strong>E-Commerce &amp; Ops:</strong> Shopify / DTC Workflows, TikTok Shop, Shopee, Lazada, Zendesk</div>
         </div>
       </section>
 
-      <!-- Education & Availability -->
-      <section class="section" style="margin-bottom: 0;">
-        <h2 class="section-title">Education &amp; Work Availability</h2>
-        <div class="education-item">
-          <div>
-            <strong>Undergraduate Coursework (Higher Education)</strong> &bull; Metro Manila, Philippines
+      <!-- Education & Academic Foundation -->
+      <section class="section">
+        <h2 class="section-title">Education &amp; Technical Foundation</h2>
+        <div class="education-card">
+          <div class="role-header">
+            <div>
+              <span class="role-title">South Mansfield College</span>
+              <div class="role-company">Bachelor of Science in Information Technology (BSIT)</div>
+            </div>
+            <div class="role-meta">Muntinlupa City, Metro Manila &bull; Completed 3 Years (Undergraduate Senior Standing)</div>
           </div>
-          <div class="role-meta">Completed coursework in business &amp; tech fundamentals</div>
+          <div class="role-context" style="margin-top: 8px;">
+            Completed 3 full years of comprehensive Information Technology coursework before transitioning directly into enterprise BPO operations, technical systems administration, and digital media production.
+          </div>
+          <ul class="role-bullets" style="margin-top: 8px;">
+            <li><strong>Core IT Coursework &amp; Competencies:</strong> Computer Programming &amp; Logic Formulation, Database Management Systems, Web Development (HTML/CSS/JS), Operating Systems &amp; Networking Fundamentals, and Systems Analysis &amp; Design.</li>
+            <li><strong>Technical Synergy with Creative Operations:</strong> This IT background provides a foundational advantage in digital marketing: rapid troubleshooting, understanding web architecture &amp; APIs, managing structured digital asset management (DAM) libraries, and building interactive client experiences like the Artisan Beadfit customizer.</li>
+          </ul>
         </div>
-        <div class="education-item" style="margin-top: 10px;">
-          <div>
-            <strong style="color: var(--accent-light);">Work Setup &amp; Availability:</strong> Remote &bull; Fully equipped home workstation (high-speed fiber, backup power, HD webcam &amp; studio mic) &bull; Immediately available for full-time schedule aligned with Australian (AEST) or Manila business hours.
+      </section>
+
+      <!-- Remote Workstation Setup & Operational Availability -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Remote Workstation Setup &amp; Availability</h2>
+        <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          
+          <div class="skill-card">
+            <h4>Connectivity &amp; Redundancy</h4>
+            <p style="font-size: 13px; color: #d1d5db; line-height: 1.55;">
+              Primary high-speed fiber broadband (300+ Mbps) backed by secondary 5G mobile hotspot redundancy for seamless 4K/1080p asset syncing, real-time client communication, and zero-drop video meetings.
+            </p>
           </div>
+
+          <div class="skill-card">
+            <h4>Production Hardware &amp; Audio</h4>
+            <p style="font-size: 13px; color: #d1d5db; line-height: 1.55;">
+              High-performance multi-monitor editing workstation optimized for CapCut Desktop and Premiere Pro rendering, studio-grade condenser microphone, and 1080p HD webcam in a quiet home office.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Power Reliability (Zero Downtime)</h4>
+            <p style="font-size: 13px; color: #d1d5db; line-height: 1.55;">
+              Equipped with dedicated Uninterruptible Power Supply (UPS) backup ensuring 100% operational uptime and project security even during unexpected local power fluctuations.
+            </p>
+          </div>
+
+          <div class="skill-card">
+            <h4>Work Schedule &amp; Time Zones</h4>
+            <p style="font-size: 13px; color: #d1d5db; line-height: 1.55;">
+              <strong style="color: var(--accent-light);">Immediate Availability:</strong> 100% ready for full-time commitment (40+ hrs/wk) aligned with <strong>Australian Eastern Standard Time (AEST / AEDT)</strong> or Philippine Standard Time (PST).
+            </p>
+          </div>
+
         </div>
       </section>
 
     </div>
   </div>
+
+  <div id="copy-toast">Email copied to clipboard!</div>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('allenolavidez@gmail.com').then(() => {
+        const toast = document.getElementById('copy-toast');
+        if (toast) {
+          toast.style.opacity = '1';
+          toast.style.transform = 'translateY(0)';
+          setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(10px)';
+          }, 2000);
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
