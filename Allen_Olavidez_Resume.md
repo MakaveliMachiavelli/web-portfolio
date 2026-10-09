@@ -93,12 +93,3 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 *Muntinlupa City, Metro Manila | Completed 3 Years (Undergraduate Senior Standing)*
 - **Coursework & Foundation:** Completed 3 full years of foundational and advanced Information Technology coursework covering Computer Programming & Logic Formulation, Database Management Systems, Web Development, Systems Analysis & Design, and Operating Systems.
 - **Application to Operations:** Applied IT principles directly to real-world production systems: building interactive React web applications, Remotion code-rendered video pipelines, and high-efficiency database workflows.
-
----
-
-## REMOTE WORKSTATION SETUP & AVAILABILITY
-
-- **Connectivity & Redundancy:** Primary high-speed fiber broadband (300+ Mbps) backed by secondary 5G mobile hotspot redundancy for seamless 4K/1080p asset syncing, real-time client communication, and zero-drop video meetings.
-- **Hardware & Audio:** High-performance multi-monitor editing workstation optimized for CapCut Desktop and Premiere Pro rendering, studio-grade condenser microphone, and 1080p HD webcam in a quiet home office.
-- **Power Reliability:** Equipped with dedicated Uninterruptible Power Supply (UPS) backup ensuring 100% operational uptime and project security.
-- **Work Schedule & Time Zones:** **Immediate full-time availability (40+ hrs/wk)** aligned with **Australian Eastern Standard Time (AEST / AEDT)** or Philippine Standard Time (PST).
