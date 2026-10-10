@@ -355,10 +355,7 @@ export default function ArtisanBeadfitShowcase() {
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={(e) => setDuration(e.target.duration)}
               onError={(e) => {
-                if (e.target.src !== window.location.origin + '/artisan_beadfit_demo.mp4') {
-                  e.target.src = '/artisan_beadfit_demo.mp4';
-                  e.target.load();
-                }
+                console.warn('Video failed to load:', e);
               }}
               className="w-full h-full object-cover"
             />
@@ -573,7 +570,7 @@ export default function ArtisanBeadfitShowcase() {
               {/* Video Player */}
               <div className="relative aspect-video w-full bg-black">
                 <video
-                  src="/artisan_beadfit_demo.mp4"
+                  src="/artisan_beadfit_web.mp4"
                   poster="/artisan_beadfit_poster.webp"
                   autoPlay
                   controls

@@ -521,7 +521,7 @@ const AGENTLAB_REMOTION_CLIPS = [
     desc: 'Autonomous 9:16 vertical short. Code-rendered kinetic typography, data visualizations, word-level audio alignment, and zero stock footage.',
     src: '/1500mw_power_for_ai.mp4',
     poster: '/power_ai_poster.webp',
-    fallbackSrc: '/1500MW-POWER-FOR-AI-UPLOAD.mp4',
+    fallbackSrc: '/1500mw_power_for_ai.mp4',
     res: '1080×1920',
     fps: '30 FPS',
     ratio: '9:16 Short',

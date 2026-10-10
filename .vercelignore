@@ -8,7 +8,6 @@ build.txt
 *.log
 *.mp4
 !public/*.mp4
-public/artisan beadfit demo.mp4
 resumes/
 *.pdf
 *Resume*
