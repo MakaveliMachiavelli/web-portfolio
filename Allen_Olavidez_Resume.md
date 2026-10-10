@@ -1,15 +1,13 @@
 # ALLEN JENUEL OLAVIDEZ
 **Admin & Social Media Specialist | Short-Form Video & Performance Creative**
-Muntinlupa City, Metro Manila, Philippines (Remote | Aligned with Australian AEST Business Hours)
+Muntinlupa City, Metro Manila, Philippines (Remote | Available for Immediate Full-Time Placement)
 - **Email:** allenolavidez@gmail.com
-- **Live Portfolio:** [allenolavidez.vercel.app](https://allenolavidez.vercel.app)
-- **Live Resume:** [allenolavidez.vercel.app/resume](https://allenolavidez.vercel.app/resume)
 - **LinkedIn:** [linkedin.com/in/allen-olavidez-olavidez-2b37a5373](https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/)
 
 ---
 
 ## PROFESSIONAL SUMMARY
-Detail-oriented and high-velocity **Admin & Social Media Specialist** with an academic foundation in **Information Technology (BSIT, South Mansfield College)** and **4+ years of enterprise operational discipline** across regulated client accounts (**WNS / NRMA Insurance Australia**, TaskUs DoorDash, Concentrix Citi). Currently employed at **TaskUs (DoorDash account, 2026–Present)** while managing ongoing freelance creator brands, bringing specialized capabilities in **short-form video editing (CapCut Desktop, Adobe Premiere Pro)**, founder-led storytelling, and Meta paid advertising creative. Combines technical systems thinking with disciplined digital asset management (**Google Workspace, Notion, Slack**), DTC e-commerce execution, and full readiness for **Australian (AEST) schedule transition**.
+Detail-oriented and high-velocity **Operations & Digital Specialist** with an academic foundation in **Information Technology (BSIT, South Mansfield College)** and **4+ years of enterprise operational discipline** across regulated client accounts (**WNS / NRMA Insurance Australia**, Concentrix Citi, and independent client brands). Specializes in **digital systems organization, executive administrative support**, CRM/database hygiene, and creative media production (**Google Workspace, Notion, Slack**). Demonstrates meticulous attention to detail, strict adherence to SOPs, and immediate readiness for full-time remote dedication.
 
 ---
 
@@ -36,13 +34,6 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 - **Digital Design & Collateral:** Crafted branded carousels, web banners, promotional graphics, and print-ready product inserts in **Canva Pro**, strictly adhering to brand guidelines, typography hierarchies, and aesthetic consistency.
 - **Digital Asset Management (DAM):** Maintained an organized Google Drive taxonomy and Notion production tracker, tagging raw footage, b-roll libraries, scripts, and export iterations to ensure zero confusion and seamless team handoffs within a 24–48 hour turnaround SLA.
 - **DTC E-Commerce Support:** Led digital store operations for **Artisan Beadfit** (handcrafted wellness/lifestyle accessories), overseeing product listing accuracy, unboxing collateral, and multi-channel inventory sync.
-
-### CUSTOMER SUPPORT SPECIALIST (AI-ASSISTED OPERATIONS)
-**TaskUs | Account: DoorDash**  
-*2026 – Present (Current Employment) | Metro Manila / Hybrid*
-- **Human-in-the-Loop Quality Assurance:** Evaluate AI-generated customer responses in real-time, catching context errors, inaccurate suggestions, and tone inconsistencies prior to customer delivery.
-- **Rapid Ticket Resolution & Merchant Support:** De-escalate merchant, customer, and driver issues across live digital queues, maintaining top-quartile CSAT (Customer Satisfaction) and first-contact resolution rates.
-- **Employment Standing & Transition Notice:** Currently employed in active standing; fully prepared to coordinate standard notice and transition smoothly into a dedicated full-time schedule aligned with Australian (AEST) business hours.
 
 ### CUSTOMER OPERATIONS & SALES SPECIALIST (AUSTRALIAN GENERAL INSURANCE)
 **WNS Global Services | Client: NRMA Insurance (Australia)**  
@@ -71,7 +62,6 @@ Detail-oriented and high-velocity **Admin & Social Media Specialist** with an ac
 - **Artisan Beadfit (DTC E-Commerce Customizer & Store Ops):** Built and deployed an interactive DTC customizer for handcrafted wellness bracelets featuring real-time geometric bead visualization, dynamic wrist sizing logic, and live price calculations. Integrated packaging inserts, unboxing collateral, and multi-store inventory sync across TikTok Shop and marketplaces.
 - **High-Retention Video & Performance Creative Engine:** Developed an end-to-end short-form vertical video production pipeline in CapCut Desktop and Premiere Pro. Systematically built and tested 3–5 opening hook variations and first-frame angles per concept for Meta paid ads to maximize viewer retention and click-through rates.
 - **AgentLab PH (Programmatic Media & Publishing Pipeline):** Engineered an automated 9:16 vertical video production engine utilizing Remotion code-rendered kinetic typography, neural voice synthesis (Kokoro TTS), and automated subtitle synchronization, establishing automated scheduling queues across Instagram Reels and Facebook.
-*(Interactive live demos, video case studies, and operational workflows are featured on the live portfolio: [allenolavidez.vercel.app](https://allenolavidez.vercel.app))*
 
 ---
 

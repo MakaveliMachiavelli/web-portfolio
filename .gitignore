@@ -35,3 +35,8 @@ vite.config.js.timestamp*
 public/artisan beadfit demo.mp4
 
 .vercel
+
+# Private Resumes & Client Custom Variants
+resumes/
+*.pdf
+*Resume*

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, ArrowDown, Mouse, Film, FileText } from 'lucide-react';
+import { Mail, ArrowDown, Mouse, Film } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -415,27 +415,14 @@ export default function Hero() {
 
             {/* Top Right: Direct Hire & Email Action Stack */}
             <div className="pointer-events-auto flex flex-col items-end gap-2.5">
-              <div className="flex items-center gap-2">
-                <a
-                  href="/resume.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View Resume"
-                  className="group flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#FF6B00]/20 backdrop-blur-md border border-white/15 hover:border-[#FF6B00]/50 text-amber-300 hover:text-white transition-all duration-300 shadow-md hover:shadow-[0_0_15px_rgba(255,107,0,0.3)] text-xs font-medium tracking-wide"
-                >
-                  <FileText className="w-3.5 h-3.5 text-amber-400 group-hover:text-white transition-colors" />
-                  <span>Resume</span>
-                </a>
-
-                <a
-                  href="#about"
-                  aria-label="Direct Hire Availability"
-                  className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#FF6B00]/15 backdrop-blur-md border border-white/15 hover:border-[#FF6B00]/40 text-white/90 hover:text-white transition-all duration-300 shadow-md hover:shadow-[0_0_15px_rgba(255,107,0,0.25)]"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs font-medium tracking-wide">Available</span>
-                </a>
-              </div>
+              <a
+                href="#about"
+                aria-label="Direct Hire Availability"
+                className="group flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#FF6B00]/15 backdrop-blur-md border border-white/15 hover:border-[#FF6B00]/40 text-white/90 hover:text-white transition-all duration-300 shadow-md hover:shadow-[0_0_15px_rgba(255,107,0,0.25)]"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs font-medium tracking-wide">Available for Hire</span>
+              </a>
 
               <a
                 href="mailto:allenolavidez@gmail.com"

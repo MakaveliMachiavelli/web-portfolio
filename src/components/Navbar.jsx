@@ -192,15 +192,6 @@ export default function Navbar() {
                 >
                   Cinema Studio
                 </button>
-                <a
-                  href="/resume.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1 rounded-full transition-all cursor-pointer text-amber-300 hover:text-white hover:bg-white/10"
-                  title="View Executive Resume"
-                >
-                  Resume
-                </a>
               </div>
 
               {/* Focus Audio Mini Pill & Actions */}
