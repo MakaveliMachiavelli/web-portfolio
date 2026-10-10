@@ -4,7 +4,7 @@ Muntinlupa City, Metro Manila, Philippines (Remote | Aligned with Australian AES
 - **Email:** allenolavidez@gmail.com
 - **Live Portfolio:** [allenolavidez.vercel.app](https://allenolavidez.vercel.app)
 - **Live Resume:** [allenolavidez.vercel.app/resume](https://allenolavidez.vercel.app/resume)
-- **LinkedIn:** [linkedin.com/in/allen-olavidez](https://linkedin.com/in/allen-olavidez)
+- **LinkedIn:** [linkedin.com/in/allen-olavidez-olavidez-2b37a5373](https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/)
 
 ---
 
