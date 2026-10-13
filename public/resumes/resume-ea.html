@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Remote Executive Assistant &amp; Operations Specialist</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — Remote Executive Assistant & Operations Specialist specializing in CRM hygiene, insurance document lifecycle, Google Workspace, and back-office organization." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #2563eb;
+      --accent-light: #60a5fa;
+      --accent-glow: rgba(37, 99, 235, 0.15);
+      --tag-bg: rgba(255, 255, 255, 0.04);
+      --tag-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Action Bar (hidden on print) */
+    .action-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 14px 20px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      font-size: 13px;
+      font-weight: 600;
+      color: #93c5fd;
+    }
+
+    .badge-pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 10px #3b82f6;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    .actions-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e5e7eb;
+      border: 1px solid var(--card-border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    /* Resume Document Wrapper */
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+    }
+
+    .resume-doc::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2563eb, #38bdf8, #2563eb);
+    }
+
+    /* Header */
+    .resume-header {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .name-title h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+
+    .name-title .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-top: 4px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent-light);
+      flex-shrink: 0;
+    }
+
+    .contact-item a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover {
+      color: #ffffff;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-light);
+    }
+
+    .summary-text {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Competencies Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .skill-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .skill-tag {
+      font-size: 11.5px;
+      padding: 2px 7px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 4px;
+      color: #e5e7eb;
+    }
+
+    /* Experience Timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 20px;
+      border-left: 2px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      box-shadow: 0 0 8px var(--accent-light);
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .role-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .role-company {
+      font-size: 13px;
+      font-weight: 600;
+      color: #93c5fd;
+    }
+
+    .role-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: monospace;
+    }
+
+    .role-context {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .role-bullets {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .role-bullets li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #d1d5db;
+      margin-bottom: 5px;
+    }
+
+    .role-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent-light);
+      font-weight: bold;
+    }
+
+    .role-bullets strong {
+      color: #f3f4f6;
+    }
+
+    .ins-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6ee7b7;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 1px 7px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Tools Cloud */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .tool-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      color: #d1d5db;
+    }
+
+    .tool-box strong {
+      color: var(--accent-light);
+      display: inline-block;
+      min-width: 130px;
+    }
+
+    /* Education Card */
+    .education-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* PRINT STYLES — Strict 2-Page Clean Output */
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 6mm 10mm 6mm 10mm;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #111827 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 8pt !important;
+        line-height: 1.35 !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .action-bar, #copy-toast {
+        display: none !important;
+      }
+
+      .resume-doc {
+        background: #ffffff !important;
+        color: #111827 !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .resume-doc::before {
+        display: none !important;
+      }
+
+      /* Header */
+      .resume-header {
+        border-bottom: 1.5px solid #e5e7eb !important;
+        padding-bottom: 6px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .name-title h1 {
+        color: #000000 !important;
+        font-size: 18pt !important;
+        letter-spacing: -0.02em !important;
+        line-height: 1.1 !important;
+        margin-bottom: 2px !important;
+      }
+
+      .name-title .subtitle {
+        color: #1d4ed8 !important;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+        margin-bottom: 4px !important;
+      }
+
+      .contact-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2px 8px !important;
+        color: #4b5563 !important;
+        font-size: 7.5pt !important;
+        margin-top: 4px !important;
+      }
+
+      .contact-item {
+        gap: 4px !important;
+      }
+
+      .contact-item svg {
+        width: 10px !important;
+        height: 10px !important;
+        color: #2563eb !important;
+      }
+
+      .contact-item a {
+        color: #111827 !important;
+        text-decoration: none !important;
+      }
+
+      /* Sections common */
+      .section {
+        margin-bottom: 8px !important;
+      }
+
+      .section-title {
+        color: #000000 !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        font-size: 9pt !important;
+        font-weight: 800 !important;
+        margin-bottom: 4px !important;
+        padding-bottom: 2px !important;
+        letter-spacing: 0.05em !important;
+      }
+
+      .section-title::before {
+        background: #2563eb !important;
+        width: 6px !important;
+        height: 6px !important;
+      }
+
+      .summary-text {
+        color: #374151 !important;
+        font-size: 8pt !important;
+        line-height: 1.32 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .summary-highlight {
+        color: #000000 !important;
+        font-weight: 600 !important;
+      }
+
+      /* Skills Grid: 3 columns in print */
+      .skills-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4px !important;
+      }
+
+      .skill-card {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 4px 6px !important;
+        border-radius: 5px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .skill-card h4 {
+        color: #1d4ed8 !important;
+        font-size: 7.8pt !important;
+        font-weight: 700 !important;
+        margin-bottom: 2px !important;
+      }
+
+      .skill-tags {
+        gap: 2px !important;
+      }
+
+      .skill-tag {
+        background: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #1f2937 !important;
+        font-size: 6.8pt !important;
+        padding: 1px 3px !important;
+        border-radius: 3px !important;
+      }
+
+      /* Experience Timeline */
+      .timeline-item {
+        border-left: 1.5px solid #d1d5db !important;
+        padding-left: 9px !important;
+        margin-bottom: 6px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      .timeline-item::before {
+        background: #2563eb !important;
+        box-shadow: none !important;
+        width: 5px !important;
+        height: 5px !important;
+        left: -3.5px !important;
+        top: 4px !important;
+      }
+
+      .role-header {
+        margin-bottom: 1px !important;
+      }
+
+      .role-title {
+        color: #000000 !important;
+        font-size: 9pt !important;
+        font-weight: 700 !important;
+      }
+
+      .role-company {
+        color: #1d4ed8 !important;
+        font-size: 8pt !important;
+        font-weight: 600 !important;
+        margin-bottom: 2px !important;
+      }
+
+      .role-meta {
+        color: #6b7280 !important;
+        font-size: 7.2pt !important;
+      }
+
+      .role-context {
+        display: none !important; /* Conceal bulky context callouts in print */
+      }
+
+      .role-bullets {
+        margin-top: 1px !important;
+      }
+
+      .role-bullets li {
+        color: #374151 !important;
+        font-size: 7.6pt !important;
+        line-height: 1.28 !important;
+        padding-left: 10px !important;
+        margin-bottom: 2px !important;
+      }
+
+      .role-bullets li::before {
+        color: #2563eb !important;
+        left: 0 !important;
+      }
+
+      .role-bullets strong {
+        color: #111827 !important;
+        font-weight: 600 !important;
+      }
+
+      .ins-badge {
+        background: #ecfdf5 !important;
+        border: 1px solid #10b981 !important;
+        color: #047857 !important;
+        font-size: 6.8pt !important;
+        padding: 0 4px !important;
+      }
+
+      /* Tools Grid */
+      .tools-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 3px !important;
+      }
+
+      .tool-box {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        color: #1f2937 !important;
+        font-size: 7.1pt !important;
+        line-height: 1.22 !important;
+        padding: 2px 5px !important;
+        border-radius: 4px !important;
+      }
+
+      .tool-box strong {
+        color: #1d4ed8 !important;
+      }
+
+      /* Education Card */
+      .education-card {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 5px 8px !important;
+        border-radius: 5px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .education-card .role-context {
+        display: block !important;
+        background: #ffffff !important;
+        border-left: 2px solid #2563eb !important;
+        padding: 2px 5px !important;
+        font-size: 7.2pt !important;
+        margin: 2px 0 !important;
+        color: #4b5563 !important;
+      }
+
+      .education-card .role-bullets li {
+        font-size: 7.4pt !important;
+        margin-bottom: 1.5px !important;
+      }
+
+      /* Page Break Divider */
+      .print-page-break {
+        display: block !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Action Bar (hidden when printing) -->
+    <div class="action-bar">
+      <div class="badge-pill">
+        <span class="dot"></span>
+        Available for Full-Time Remote &bull; Mountain Time (9:00 AM &ndash; 5:00 PM MT) Aligned
+      </div>
+      <div class="actions-group">
+        <button onclick="copyEmail()" class="btn btn-secondary" title="Copy allenolavidez@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          Copy Email
+        </button>
+        <button onclick="window.print()" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+          Download / Print PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Resume Card -->
+    <div class="resume-doc">
+      
+      <!-- Header -->
+      <header class="resume-header">
+        <div class="header-top">
+          <div class="name-title">
+            <h1>ALLEN JENUEL OLAVIDEZ</h1>
+            <div class="subtitle">Remote Executive Assistant &amp; Operations Specialist &bull; Insurance &amp; Financial Services Back-Office</div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Muntinlupa City, Metro Manila, Philippines (100% Dedicated Remote &bull; Mountain Time Aligned)</span>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/" target="_blank" rel="noopener">linkedin.com/in/allen-olavidez-olavidez-2b37a5373</a>
+          </div>
+          <div class="contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span style="color: var(--accent-light);">South Mansfield College &bull; BSIT (3 Years Completed)</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Executive Summary -->
+      <section class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <p class="summary-text">
+          Methodical, highly organized <span class="summary-highlight">Remote Executive Assistant &amp; Operations Specialist</span> with an academic background in <span class="summary-highlight">Information Technology (BSIT, South Mansfield College)</span> and <span class="summary-highlight">4+ years of back-office and operations experience</span> across regulated corporate environments, including <span class="summary-highlight">2 full years supporting NRMA Insurance Australia (via WNS Global Services)</span> and Tier-1 financial compliance at <span class="summary-highlight">Citi (via Concentrix)</span>. Passionate about CRM data integrity, clean digital filing systems, and zero-defect document workflows. Specializes in managing applications from intake to completion, building structured Google Sheets/Excel tracking systems, preparing executive reports, and coordinating daily leadership schedules. Committed to 100% exclusive, long-term full-time availability aligned with <span class="summary-highlight">US Mountain Time (9:00 AM &ndash; 5:00 PM MT)</span>.
+        </p>
+      </section>
+
+      <!-- Core Competencies Matrix -->
+      <section class="section">
+        <h2 class="section-title">Core Competencies &amp; Operational Capabilities</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-card">
+            <h4>CRM &amp; Data Hygiene</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Salesforce</span>
+              <span class="skill-tag">CRM Account Updating</span>
+              <span class="skill-tag">Record Deduplication</span>
+              <span class="skill-tag">Pipeline Tracking</span>
+              <span class="skill-tag">Audit Trail Verification</span>
+              <span class="skill-tag">Data Accuracy Protection</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Document &amp; Policy Lifecycles</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Intake to Completion</span>
+              <span class="skill-tag">Policy Document Review</span>
+              <span class="skill-tag">Missing Item Follow-Ups</span>
+              <span class="skill-tag">Application Verification</span>
+              <span class="skill-tag">Standard Operating Procedures</span>
+              <span class="skill-tag">Regulatory Compliance</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Executive &amp; Calendar Support</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Calendar / Outlook</span>
+              <span class="skill-tag">Meeting Preparation</span>
+              <span class="skill-tag">Daily Action Checklists</span>
+              <span class="skill-tag">Inbox Management</span>
+              <span class="skill-tag">Leadership Briefings</span>
+              <span class="skill-tag">Priority Triage</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Digital Filing &amp; Taxonomy</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Drive Architecture</span>
+              <span class="skill-tag">Standardized File Naming</span>
+              <span class="skill-tag">Notion Knowledge Bases</span>
+              <span class="skill-tag">Cloud Asset Management</span>
+              <span class="skill-tag">Access Control &amp; Sharing</span>
+              <span class="skill-tag">Repository Cleanups</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Spreadsheets &amp; Reporting</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Google Sheets Formulas</span>
+              <span class="skill-tag">Microsoft Excel</span>
+              <span class="skill-tag">VLOOKUP / XLOOKUP</span>
+              <span class="skill-tag">Status &amp; Pipeline Trackers</span>
+              <span class="skill-tag">Weekly Summary Reports</span>
+              <span class="skill-tag">Error Reduction Systems</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h4>Compliance &amp; Confidentiality</h4>
+            <div class="skill-tags">
+              <span class="skill-tag">Sensitive PII Protection</span>
+              <span class="skill-tag">Insurance Regulations</span>
+              <span class="skill-tag">Zero Privacy Breaches</span>
+              <span class="skill-tag">Discretion &amp; Ethics</span>
+              <span class="skill-tag">Quality Benchmark Audits</span>
+              <span class="skill-tag">Zero-Defect Standard</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <!-- Role 1: Freelance Remote Operations & Executive Assistant -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Remote Executive Assistant &amp; Operations Specialist</span>
+              <div class="role-company">Independent Client Operations &bull; Remote</div>
+            </div>
+            <div class="role-meta">2024 &ndash; Present | Remote</div>
+          </div>
+          <div class="role-context">
+            Providing comprehensive administrative, systems, and workflow management for remote business owners and growing teams.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Digital File Architecture &amp; Cleanups:</strong> Restructured disorganized cloud repositories across Google Drive and Notion, establishing standardized folder hierarchies and naming conventions that reduced file retrieval time across team members.</li>
+            <li><strong>Pipeline Tracking &amp; Spreadsheet Automation:</strong> Architected centralized Google Sheets trackers to monitor project milestones, document handoffs, and pending requirements, implementing conditional formatting and cross-sheet formulas to keep operational statuses accurate.</li>
+            <li><strong>Executive Calendar &amp; Task Coordination:</strong> Managed leadership calendars, prioritized daily tasks, organized meeting agendas, and followed up systematically on action items until every deliverable was completed.</li>
+            <li><strong>Standard Operating Procedures (SOPs):</strong> Documented repeatable step-by-step administrative guides and checklists, ensuring seamless process execution and data consistency.</li>
+          </ul>
+        </div>
+
+        <!-- Strict Print Page Break: Page 1 ends after Freelance, Page 2 starts at WNS (Insurance Account) -->
+        <div class="print-page-break"></div>
+        <h2 class="section-title print-continued-header">Professional Experience (Continued)</h2>
+
+        <!-- Role 2: WNS Global Services (NRMA Insurance) -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Customer Operations &amp; Insurance Policy Specialist</span>
+              <span class="ins-badge">&#x1F6E1; Insurance Industry Account</span>
+              <div class="role-company">WNS Global Services &bull; Client: NRMA (Australian General Insurance)</div>
+            </div>
+            <div class="role-meta">2022 &ndash; 2024 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            Managed insurance policyholder records, application intake, and documentation workflows for Australia&rsquo;s leading general insurance provider under strict regulatory oversight.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Insurance CRM Maintenance &amp; Data Accuracy:</strong> Handled daily policyholder accounts in enterprise CRM databases, ensuring client profiles, policy endorsements, and account updates were logged with 100% data integrity and zero compliance errors.</li>
+            <li><strong>Document Intake &amp; End-to-End Processing:</strong> Moved customer applications and required insurance documents through structured intake verification stages, following up on pending items and missing paperwork until cases reached completion.</li>
+            <li><strong>Strict Discretion &amp; Regulatory Compliance:</strong> Handled highly confidential policyholder PII (Personally Identifiable Information) and financial records daily, maintaining a spotless record with zero privacy breaches or regulatory violations.</li>
+            <li><strong>Operational SLA Excellence:</strong> Consistently met enterprise benchmarks for handle time, documentation turnaround, and quality audit scores, thriving in a high-volume, detail-intensive operational environment.</li>
+          </ul>
+        </div>
+
+        <!-- Role 3: Concentrix (Citi Financial Services) -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Compliance &amp; Account Documentation Specialist (Tier 2 &rarr; Tier 1)</span>
+              <div class="role-company">Concentrix &bull; Account: Citi (Financial Services)</div>
+            </div>
+            <div class="role-meta">2020 &ndash; 2021 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            High-compliance financial account administration, dispute documentation, and sensitive record auditing.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Account Verification &amp; Auditing:</strong> Verified customer account credentials, verified legal and payment paperwork, and logged detailed case notes in enterprise banking databases.</li>
+            <li><strong>Rapid Merit-Based Promotion:</strong> Promoted from Tier 2 to Tier 1 within 6 months based on meticulous documentation quality, negotiation ethics, and zero compliance errors.</li>
+            <li><strong>Confidentiality &amp; Discretion:</strong> Strictly safeguarded sensitive client financial information in full compliance with federal banking regulations.</li>
+          </ul>
+        </div>
+
+        <!-- Role 4: Mobilia Fabrica -->
+        <div class="timeline-item">
+          <div class="role-header">
+            <div>
+              <span class="role-title">Administrative &amp; Operations Coordinator</span>
+              <div class="role-company">Mobilia Fabrica (Custom Fabrication &amp; Lifestyle Goods)</div>
+            </div>
+            <div class="role-meta">2016 &ndash; 2020 | Metro Manila</div>
+          </div>
+          <div class="role-context">
+            Coordinated end-to-end order processing, quotation spreadsheets, and multi-party delivery schedules.
+          </div>
+          <ul class="role-bullets">
+            <li><strong>Order Error Reduction:</strong> Architected customized quotation sheets and master order trackers in Google Sheets/Excel, reducing order tracking errors by 25% across 10&ndash;30 concurrent monthly bespoke builds.</li>
+            <li><strong>File Systemization:</strong> Organized digital workshop folders, technical specification sheets, and vendor price lists so team members could locate required assets immediately.</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <!-- Technical & Administrative Tool Stack -->
+      <section class="section">
+        <h2 class="section-title">Administrative &amp; Technical Tool Stack</h2>
+        <div class="tools-grid">
+          <div class="tool-box">
+            <strong>CRM &amp; Platforms:</strong> Salesforce, Zendesk Support/CRM, Darwinbox, Custom CRM Portals
+          </div>
+          <div class="tool-box">
+            <strong>Spreadsheets:</strong> Google Sheets (Advanced Formulas, Filtering, Formatting), Microsoft Excel
+          </div>
+          <div class="tool-box">
+            <strong>Cloud Storage &amp; DAM:</strong> Google Drive (Folder Taxonomies, Access Management), Microsoft OneDrive, Dropbox
+          </div>
+          <div class="tool-box">
+            <strong>Executive Support:</strong> Google Calendar, Microsoft Outlook, Notion (SOPs &amp; Wikis), Asana, Trello
+          </div>
+          <div class="tool-box">
+            <strong>Communication &amp; Comms:</strong> Slack, Zoom, Google Meet, Loom (Async Walkthroughs), Microsoft Teams
+          </div>
+          <div class="tool-box">
+            <strong>Technical Foundation:</strong> South Mansfield College BSIT, Database Concepts, Web Architecture, Zapier/Webhooks
+          </div>
+        </div>
+      </section>
+
+      <!-- Education & Academic Foundation -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education &amp; Academic Foundation</h2>
+        <div class="education-card">
+          <div class="role-header">
+            <div>
+              <span class="role-title">South Mansfield College</span>
+              <div class="role-company">Bachelor of Science in Information Technology (BSIT)</div>
+            </div>
+            <div class="role-meta">Muntinlupa City, Metro Manila &bull; Completed 3 Years (Senior Undergraduate Standing)</div>
+          </div>
+          <div class="role-context" style="margin-top: 8px;">
+            Rigorous 3-year IT curriculum providing deep structural knowledge in database management systems, spreadsheet automation, digital workflows, and information security.
+          </div>
+          <ul class="role-bullets" style="margin-top: 8px;">
+            <li><strong>Core Coursework:</strong> Database Management Systems (SQL &amp; Relational Schemas), Systems Analysis &amp; Design, Computer Programming &amp; Logic, Information Security &amp; Data Privacy.</li>
+            <li><strong>Application to Executive Operations:</strong> Applies database principles to maintain spotless CRM data hygiene, construct error-proof tracking sheets, and troubleshoot digital workflow bottlenecks independently.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div id="copy-toast">Email copied to clipboard!</div>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('allenolavidez@gmail.com').then(() => {
+        const toast = document.getElementById('copy-toast');
+        if (toast) {
+          toast.style.opacity = '1';
+          toast.style.transform = 'translateY(0)';
+          setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(10px)';
+          }, 2000);
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

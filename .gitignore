@@ -36,6 +36,8 @@ vite.config.js.timestamp*
 .vercel
 
 # Private Resumes & Client Custom Variants
-resumes/
-*.pdf
-*Resume*
+/resumes/
+/*.pdf
+/*Resume*
+!public/*.pdf
+!public/resumes/**

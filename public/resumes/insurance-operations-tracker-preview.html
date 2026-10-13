@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorado Insurance District — Operations & SME Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #0ea5e9;
+      --accent-hover: #38bdf8;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --purple: #8b5cf6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 24px;
+      margin-bottom: 20px;
+    }
+    .brand-title h1 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-title .badge {
+      background: rgba(14, 165, 233, 0.15);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      color: var(--accent-hover);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+    .brand-title p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .dot-live {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+    .nav-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-tab:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+    .nav-tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 0 16px rgba(14, 165, 233, 0.3);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      position: relative;
+    }
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 10px 10px 0 0;
+    }
+    .kpi-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .kpi-number {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin: 6px 0 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .kpi-desc {
+      font-size: 11.5px;
+      color: #6b7280;
+    }
+    
+    /* Controls Bar */
+    .controls-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .filter-group {
+      display: flex;
+      gap: 6px;
+    }
+    .btn-filter {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-filter.active, .btn-filter:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border-color: #374151;
+    }
+    .search-input {
+      background: #1f2937;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      font-size: 12.5px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      width: 240px;
+      outline: none;
+    }
+    .search-input:focus { border-color: var(--accent); }
+
+    /* Tables */
+    .table-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+    th {
+      background: #0d131f;
+      color: #94a3b8;
+      font-weight: 600;
+      font-size: 11.5px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      vertical-align: middle;
+    }
+    tr:hover { background: rgba(255, 255, 255, 0.02); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; }
+    
+    /* Badges */
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-bound { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-review { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-missing { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-sme { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+    
+    .formula-callout {
+      background: #0d131f;
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+    .formula-callout h4 {
+      color: var(--accent-hover);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .code-pill {
+      font-family: 'JetBrains Mono', monospace;
+      color: #38bdf8;
+      background: rgba(14, 165, 233, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+    .folder-tree {
+      background: #0d131f;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.8;
+      color: #e2e8f0;
+    }
+    .folder-name { color: #38bdf8; font-weight: 600; }
+    .folder-desc { color: #64748b; font-family: 'Inter', sans-serif; font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <div class="top-bar">
+    <div class="brand-title">
+      <h1>
+        COLORADO DISTRICT 14 &mdash; OPERATIONS COMMAND CENTER
+        <span class="badge">SME / EA MASTER VIEW</span>
+      </h1>
+      <p>Real-Time District Intake, SME Rating Audit Log, Carrier Binding SLAs & Folder Taxonomy</p>
+    </div>
+    <div class="top-meta">
+      <div><span class="dot-live"></span>Live District Sync &bull; 9:00 AM – 5:00 PM Mountain Time</div>
+      <div style="background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 6px;">Lead EA: Allen Olavidez</div>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('tab-log')">📋 Tab 1: Intake & SME Escalations Log (18 Accounts)</button>
+    <button class="nav-tab" onclick="switchTab('tab-dash')">📊 Tab 2: Executive KPI Dashboard & SLAs</button>
+    <button class="nav-tab" onclick="switchTab('tab-carrier')">🏢 Tab 3: Carrier Underwriting Matrix</button>
+    <button class="nav-tab" onclick="switchTab('tab-taxonomy')">📁 Tab 4: EA Cloud Folder Taxonomy & SOP</button>
+  </div>
+
+  <!-- TAB 1: INTAKE & SME LOG -->
+  <div id="tab-log" class="tab-content active">
+    <!-- KPI Overview Row -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Active Caseload</div>
+        <div class="kpi-number">18</div>
+        <div class="kpi-desc">Total district files in current cycle</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Bound & Cleared</div>
+        <div class="kpi-number" style="color: var(--green);">10</div>
+        <div class="kpi-desc">Zero-defect binding verified</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pending Underwriting</div>
+        <div class="kpi-number" style="color: var(--amber);">5</div>
+        <div class="kpi-desc">Roof/WUI & inspection reviews</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">SME Escalations (L0 / L1)</div>
+        <div class="kpi-number" style="color: var(--purple);">6</div>
+        <div class="kpi-desc">Rating discrepancies & price audits</div>
+      </div>
+    </div>
+
+    <!-- Controls Bar -->
+    <div class="controls-bar">
+      <div class="filter-group">
+        <button class="btn-filter active" onclick="filterTable('all')">All Records (18)</button>
+        <button class="btn-filter" onclick="filterTable('Bound')">Bound & Closed (10)</button>
+        <button class="btn-filter" onclick="filterTable('Review')">Underwriting Review (4)</button>
+        <button class="btn-filter" onclick="filterTable('Missing')">Missing Documents (3)</button>
+        <button class="btn-filter" onclick="filterTable('Escalation')">SME Escalations (6)</button>
+      </div>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search account, carrier or line..." onkeyup="searchTable()">
+    </div>
+
+    <!-- Main Table (All 18 Cases) -->
+    <div class="table-wrapper">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <th>File ID</th>
+            <th>Account / Insured</th>
+            <th>Line of Coverage</th>
+            <th>Carrier</th>
+            <th>Intake Date</th>
+            <th>Escalation Tier</th>
+            <th>Pipeline Stage</th>
+            <th>Sum Insured</th>
+            <th>Deductible</th>
+            <th>Audit Notes & Rating Factors</th>
+            <th>Prior Claims</th>
+            <th>Aging</th>
+            <th>District Agent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1090</strong></td>
+            <td><strong>Vance, Gregory & Laura</strong></td>
+            <td>Homeowners (Building & Contents)</td>
+            <td>Farmers</td>
+            <td class="mono">2026-10-10</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">$680,000</td>
+            <td class="mono">$2,500</td>
+            <td>Wildfire Defensible Space verified; Class 4 impact roof credit applied</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1091</strong></td>
+            <td><strong>Highland Peak Rentals LLC</strong></td>
+            <td>Landlord Building & Contents</td>
+            <td>Travelers</td>
+            <td class="mono">2026-10-11</td>
+            <td><span class="badge-status badge-sme">L1 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-review">Underwriting Review</span></td>
+            <td class="mono">$1,250,000</td>
+            <td class="mono">$5,000</td>
+            <td>Replacement cost audited; central fire alarm certificate pending</td>
+            <td>1 Water Loss (2023)</td>
+            <td class="mono">3d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Missing" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1092</strong></td>
+            <td><strong>Kowalski, David & Elena</strong></td>
+            <td>Personal Auto (2 Vehicles)</td>
+            <td>Progressive</td>
+            <td class="mono">2026-10-11</td>
+            <td><span class="badge-status badge-sme">L0 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-missing">Missing Documents</span></td>
+            <td class="mono">100k/300k/100k</td>
+            <td class="mono">$1,000</td>
+            <td>Garaging territory zip code verified; awaiting prior Dec page for proof of prior</td>
+            <td>Clean (3 Yrs)</td>
+            <td class="mono">3d</td>
+            <td>Elena Ross (Ag. 104)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1093</strong></td>
+            <td><strong>Apex Rocky Mountain Logistics</strong></td>
+            <td>Commercial Package / Auto</td>
+            <td>Hartford</td>
+            <td class="mono">2026-10-11</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">$2,000,000</td>
+            <td class="mono">$5,000</td>
+            <td>MVR driver checks cleared; DOT safety compliance audited</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1094</strong></td>
+            <td><strong>Steamboat Alpine Lodge</strong></td>
+            <td>Commercial BOP + Landlord</td>
+            <td>Travelers</td>
+            <td class="mono">2026-10-11</td>
+            <td><span class="badge-status badge-sme">L1 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-review">Underwriting Review</span></td>
+            <td class="mono">$3,400,000</td>
+            <td class="mono">$10,000</td>
+            <td>Severe hail zone tier review; special wind/hail deductible adjusted to 2%</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">3d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1095</strong></td>
+            <td><strong>Ramirez, Carlos</strong></td>
+            <td>Personal Auto + Motorcycle</td>
+            <td>Progressive</td>
+            <td class="mono">2026-10-12</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">50k/100k/50k</td>
+            <td class="mono">$500</td>
+            <td>Motorcycle garaged in locked enclosure; multi-policy discount linked</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Elena Ross (Ag. 104)</td>
+          </tr>
+          <tr data-stage="Missing" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1096</strong></td>
+            <td><strong>Denver Front Range Properties</strong></td>
+            <td>Landlord Building & Contents</td>
+            <td>Farmers</td>
+            <td class="mono">2026-10-12</td>
+            <td><span class="badge-status badge-sme">L0 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-missing">Missing Documents</span></td>
+            <td class="mono">$890,000</td>
+            <td class="mono">$2,500</td>
+            <td>Tenant screening protocol verified; awaiting landlord loss history form</td>
+            <td>Clean (4 Yrs)</td>
+            <td class="mono">2d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1097</strong></td>
+            <td><strong>Thorne, Marcus & Abigail</strong></td>
+            <td>Homeowners (HO-3)</td>
+            <td>Hartford</td>
+            <td class="mono">2026-10-12</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">$750,000</td>
+            <td class="mono">$2,500</td>
+            <td>Hail resistant shingles verified via invoice; windstorm deductible approved</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1098</strong></td>
+            <td><strong>Aspen Ridge Dental Group</strong></td>
+            <td>Commercial BOP Package</td>
+            <td>Travelers</td>
+            <td class="mono">2026-10-12</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">$1,500,000</td>
+            <td class="mono">$2,500</td>
+            <td>EFT authorization verified; medical equipment valuation attached</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1099</strong></td>
+            <td><strong>O'Connor, Liam</strong></td>
+            <td>Motorcycle (Cruiser)</td>
+            <td>Progressive</td>
+            <td class="mono">2026-10-13</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">State Minimums</td>
+            <td class="mono">$500</td>
+            <td>Seasonal endorsement logged; clean MVR abstract</td>
+            <td>Clean (3 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Elena Ross (Ag. 104)</td>
+          </tr>
+          <tr data-stage="Missing" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1100</strong></td>
+            <td><strong>Clear Creek Custom Builds</strong></td>
+            <td>Commercial Builders Risk</td>
+            <td>Hartford</td>
+            <td class="mono">2026-10-13</td>
+            <td><span class="badge-status badge-sme">L1 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-missing">Missing Documents</span></td>
+            <td class="mono">$1,800,000</td>
+            <td class="mono">$5,000</td>
+            <td>Jobsite perimeter security plan requested by carrier underwriting</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">1d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1101</strong></td>
+            <td><strong>Chen, Wei & Mei</strong></td>
+            <td>Homeowners (Building & Contents)</td>
+            <td>Farmers</td>
+            <td class="mono">2026-10-13</td>
+            <td><span class="badge-status badge-sme">L0 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-review">Underwriting Review</span></td>
+            <td class="mono">$920,000</td>
+            <td class="mono">$2,500</td>
+            <td>Price objection resolved via dead-tree removal & hail deductible restructuring</td>
+            <td>1 Hail Claim (2024)</td>
+            <td class="mono">1d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1102</strong></td>
+            <td><strong>Red Rocks Outdoor Gear</strong></td>
+            <td>Commercial Property & GL</td>
+            <td>Travelers</td>
+            <td class="mono">2026-10-13</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">$2,200,000</td>
+            <td class="mono">$5,000</td>
+            <td>Inventory valuation schedule audited; COI template generated</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Bound" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1103</strong></td>
+            <td><strong>Peterson, Bradley</strong></td>
+            <td>Personal Auto (F-150)</td>
+            <td>Progressive</td>
+            <td class="mono">2026-10-13</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-bound">Bound & Complete</span></td>
+            <td class="mono">100k/300k/100k</td>
+            <td class="mono">$1,000</td>
+            <td>Vehicle safety sensors discount applied; garaging zip code certified</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Elena Ross (Ag. 104)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1104</strong></td>
+            <td><strong>Silverthorne Vacation Units</strong></td>
+            <td>Landlord Building & Contents</td>
+            <td>Farmers</td>
+            <td class="mono">2026-10-14</td>
+            <td><span class="badge-status badge-sme">L1 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-review">Underwriting Review</span></td>
+            <td class="mono">$1,450,000</td>
+            <td class="mono">$5,000</td>
+            <td>Short-term rental endorsement review; freeze-warning sensor verified</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Marcus Vance (Ag. 102)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1105</strong></td>
+            <td><strong>Golden Gate Bakery LLC</strong></td>
+            <td>Commercial BOP Package</td>
+            <td>Hartford</td>
+            <td class="mono">2026-10-14</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-review">Intake Audit</span></td>
+            <td class="mono">$850,000</td>
+            <td class="mono">$2,500</td>
+            <td>Hood & duct fire suppression inspection tag pending upload</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Standard">
+            <td class="mono"><strong>POL-CO-1106</strong></td>
+            <td><strong>Morrison, Danielle</strong></td>
+            <td>Homeowners (Building & Contents)</td>
+            <td>Farmers</td>
+            <td class="mono">2026-10-14</td>
+            <td><span class="badge-status">Standard Review</span></td>
+            <td><span class="badge-status badge-review">Intake Audit</span></td>
+            <td class="mono">$540,000</td>
+            <td class="mono">$1,500</td>
+            <td>Initial intake review; prior insurance continuous coverage validated</td>
+            <td>Clean (5 Yrs)</td>
+            <td class="mono">0d</td>
+            <td>Elena Ross (Ag. 104)</td>
+          </tr>
+          <tr data-stage="Review" data-tier="Escalation">
+            <td class="mono"><strong>POL-CO-1107</strong></td>
+            <td><strong>Durango Mountain Transit</strong></td>
+            <td>Commercial Fleet Auto</td>
+            <td>Progressive</td>
+            <td class="mono">2026-10-14</td>
+            <td><span class="badge-status badge-sme">L1 Escalation (SME)</span></td>
+            <td><span class="badge-status badge-review">Intake Audit</span></td>
+            <td class="mono">$1,900,000</td>
+            <td class="mono">$5,000</td>
+            <td>Loss runs for prior 4 years requested from CNA; CDL license checks in queue</td>
+            <td>2 Minor Claims (2022)</td>
+            <td class="mono">0d</td>
+            <td>Sarah Jenkins (Ag. 108)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Formula Architecture Note -->
+    <div class="formula-callout">
+      <h4>⚡ Advanced Operational Logic & Automation Built into this Architecture:</h4>
+      <p style="margin-bottom: 6px;">• <strong>Smart Aging Engine:</strong> <span class="code-pill">=IF(G5="Bound & Complete", 0, TODAY()-E5)</span> &mdash; Automatically zeroes out closed files while calculating live aging on active cases.</p>
+      <p style="margin-bottom: 6px;">• <strong>Cross-Tab Carrier Lookup:</strong> <span class="code-pill">=XLOOKUP(C5, CarrierMatrix!A:A, CarrierMatrix!D:D)</span> &mdash; Dynamically pulls carrier underwriting rules and hail deductibles without manual error.</p>
+      <p style="margin-bottom: 6px;">• <strong>Dynamic KPI Summary:</strong> <span class="code-pill">=COUNTIF(StageRange, "Bound & Complete")</span> &mdash; Live executive throughput metrics.</p>
+      <p>• <strong>Data Validation & Integrity:</strong> Dropdown menus for stage transitions; locked formulas prevent accidental district overwrites.</p>
+    </div>
+  </div>
+
+  <!-- TAB 2: EXECUTIVE DASHBOARD & SLAS -->
+  <div id="tab-dash" class="tab-content">
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Weekly File Turnaround</div>
+        <div class="kpi-number">1.4 Days</div>
+        <div class="kpi-desc">Well within the 48-Hour SLA limit</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">SLA Compliance Rate</div>
+        <div class="kpi-number" style="color: var(--green);">94.4%</div>
+        <div class="kpi-desc">17 of 18 files cleared on schedule</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">L0/L1 Resolution Rate</div>
+        <div class="kpi-number" style="color: var(--accent);">100%</div>
+        <div class="kpi-desc">Zero files escalated to Level 2 Management</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Audit Error Rate</div>
+        <div class="kpi-number" style="color: var(--green);">0.0%</div>
+        <div class="kpi-desc">Zero carrier binding rejections</div>
+      </div>
+    </div>
+
+    <div class="table-wrapper" style="margin-top: 16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Line of Business</th>
+            <th>Active Caseload</th>
+            <th>Bound & Cleared</th>
+            <th>Underwriting Review</th>
+            <th>Missing Documents</th>
+            <th>SME Escalated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Homeowners (Building & Contents)</strong></td>
+            <td class="mono">5</td>
+            <td class="mono" style="color: var(--green);">3</td>
+            <td class="mono" style="color: var(--amber);">2</td>
+            <td class="mono">0</td>
+            <td class="mono" style="color: var(--purple);">1</td>
+          </tr>
+          <tr>
+            <td><strong>Landlord Building & Contents</strong></td>
+            <td class="mono">4</td>
+            <td class="mono" style="color: var(--green);">1</td>
+            <td class="mono" style="color: var(--amber);">2</td>
+            <td class="mono">1</td>
+            <td class="mono" style="color: var(--purple);">3</td>
+          </tr>
+          <tr>
+            <td><strong>Personal Auto & Motorcycle</strong></td>
+            <td class="mono">5</td>
+            <td class="mono" style="color: var(--green);">4</td>
+            <td class="mono">0</td>
+            <td class="mono">1</td>
+            <td class="mono" style="color: var(--purple);">1</td>
+          </tr>
+          <tr>
+            <td><strong>Commercial Package & BOP</strong></td>
+            <td class="mono">4</td>
+            <td class="mono" style="color: var(--green);">2</td>
+            <td class="mono" style="color: var(--amber);">1</td>
+            <td class="mono">1</td>
+            <td class="mono" style="color: var(--purple);">1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 3: CARRIER MATRIX -->
+  <div id="tab-carrier" class="tab-content">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Carrier Code</th>
+            <th>Carrier Name</th>
+            <th>Portal Platform</th>
+            <th>Appetite Focus</th>
+            <th>Colorado Wind/Hail Rule</th>
+            <th>Wildfire Zone Inspection Rule</th>
+            <th>Underwriting Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono"><strong>FARM-01</strong></td>
+            <td><strong>Farmers Insurance</strong></td>
+            <td>PolicyCenter / Agency Gateway</td>
+            <td>Home, Auto, Umbrella, Landlord</td>
+            <td>Mandatory $2,500 min deductible in Tier 1 hail zones</td>
+            <td>Zone 3 WUI requires defensible space clearance audit</td>
+            <td class="mono">co.underwriting@farmers.com</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>PROG-02</strong></td>
+            <td><strong>Progressive</strong></td>
+            <td>For Agents (Drive)</td>
+            <td>Personal Auto, Motorcycle, Commercial Auto</td>
+            <td>Standard comprehensive deductibles ($500 / $1,000)</td>
+            <td>Garaging zip code and multi-car parking space verified</td>
+            <td class="mono">agency.desk@progressive.com</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>TRAV-03</strong></td>
+            <td><strong>Travelers</strong></td>
+            <td>Atlas Agent Portal</td>
+            <td>Commercial BOP, Landlord Habitational</td>
+            <td>2% Wind/Hail endorsement required on structures > 15 yrs</td>
+            <td>Central smoke & freeze warning sensor proof required</td>
+            <td class="mono">mountain.bop@travelers.com</td>
+          </tr>
+          <tr>
+            <td class="mono"><strong>HART-04</strong></td>
+            <td><strong>The Hartford</strong></td>
+            <td>E-Business Center</td>
+            <td>Commercial Package, Builders Risk</td>
+            <td>1% to 2% calendar year wind/hail endorsement</td>
+            <td>Site perimeter security & fire extinguisher tags audited</td>
+            <td class="mono">commercial.desk@thehartford.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 4: FOLDER TAXONOMY & SOP -->
+  <div id="tab-taxonomy" class="tab-content">
+    <div class="folder-tree">
+      <div style="color: #fff; font-weight: 700; margin-bottom: 12px; font-size: 14px;">🗂️ DISTRICT EXECUTIVE ASSISTANT FOLDER TAXONOMY & CLOUD ARCHITECTURE:</div>
+      
+      <div><span class="folder-name">📁 [01_CLIENT_ACCOUNTS]</span> <span class="folder-desc">&mdash; Master client repository partitioned alphabetically</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="folder-name">📁 [Client_LastName_FirstName]</span> <span class="folder-desc">&mdash; Dedicated customer policy vault</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="folder-name">📁 01_Intake_&_Applications</span> <span class="folder-desc">&mdash; Signed client intake questionnaires & binder forms</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="folder-name">📁 02_Carrier_DecPages_&_Policies</span> <span class="folder-desc">&mdash; Official Declarations pages & active policy contracts</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="folder-name">📁 03_Underwriting_&_Inspections</span> <span class="folder-desc">&mdash; Defensible space audits, roof photos, central alarm certs</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="folder-name">📁 04_LossRuns_&_PriorCoverage</span> <span class="folder-desc">&mdash; 3-5 Year prior carrier loss runs & prior Dec pages</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="folder-name">📁 05_Billing_&_EFT_Authorizations</span> <span class="folder-desc">&mdash; Voided checks, EFT payment authorization records</span></div>
+      <br>
+      <div><span class="folder-name">📁 [02_DISTRICT_OPS_&_SME_LOGS]</span> <span class="folder-desc">&mdash; Master intake pipeline trackers, SLA audits, renewal price objection logs</span></div>
+      <div><span class="folder-name">📁 [03_CARRIER_GUIDELINES_&_SOPS]</span> <span class="folder-desc">&mdash; Step-by-step Standard Operating Procedures & carrier appetite bulletins</span></div>
+      <br>
+      <div style="border-top: 1px solid var(--card-border); padding-top: 12px; margin-top: 12px;">
+        <span style="color: #38bdf8; font-weight: 600;">🏷️ STRICT STANDARDIZED FILE NAMING TAXONOMY:</span><br>
+        <span style="color: #fff;">Formula:</span> <span class="code-pill">[YYYY-MM-DD]_[ClientLastName]_[LineOfCoverage]_[DocumentType]_[v#].[ext]</span><br>
+        <span style="color: #94a3b8;">Example:</span> <span style="color: #34d399;">2026-10-10_Vance_HomeHO3_CarrierDecPage_v1.pdf</span><br>
+        <span style="color: #94a3b8;">Example:</span> <span style="color: #34d399;">2026-10-11_HighlandPeak_LandlordDP3_CentralAlarmCert_v1.pdf</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function filterTable(stage) {
+      document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      const rows = document.querySelectorAll('#mainTable tbody tr');
+      rows.forEach(r => {
+        if (stage === 'all') {
+          r.style.display = '';
+        } else if (stage === 'Escalation') {
+          r.style.display = r.getAttribute('data-tier') === 'Escalation' ? '' : 'none';
+        } else {
+          r.style.display = r.getAttribute('data-stage') === stage ? '' : 'none';
+        }
+      });
+    }
+
+    function searchTable() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#mainTable tbody tr');
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

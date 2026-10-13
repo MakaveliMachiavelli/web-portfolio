@@ -44,7 +44,15 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/resume",
+      "destination": "/resume.pdf"
+    },
+    {
+      "source": "/tracker",
+      "destination": "/tracker.html"
+    },
+    {
+      "source": "/((?!assets/|resumes/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
