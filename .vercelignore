@@ -8,6 +8,8 @@ build.txt
 *.log
 *.mp4
 !public/*.mp4
-resumes/
-*.pdf
-*Resume*
+/resumes/
+/*.pdf
+/*Resume*
+!public/*.pdf
+!public/resumes/**
