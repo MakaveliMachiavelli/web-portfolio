@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Resume | TikTok Shop AI Creator &amp; E-Commerce Video Specialist</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — Experienced TikTok Shop AI Creator, Generative Video &amp; E-Commerce Media Specialist." />
+  <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
+  
+  <!-- Fonts: Syne, Satoshi & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0e0e14;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.25);
+      --accent-light: #ffa142;
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --tag-border: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 12px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--accent-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c33);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 56px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b00, #f59e0b, #eab308);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .name-title h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .name-title .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .summary-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .skill-card h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .skill-card li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .skill-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .exp-item {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent-light);
+      background: rgba(255, 107, 0, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .exp-company {
+      font-size: 13px;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      font-size: 13px;
+      color: #d1d5db;
+      line-height: 1.55;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+    }
+
+    .exp-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .tool-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .tool-group-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .tool-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-badge {
+      font-size: 11.5px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--tag-border);
+      color: #e5e7eb;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* =========================================================
+       PRINT STYLES FOR CRISP, 2-PAGE EXECUTIVE PDF OUTPUT
+       ========================================================= */
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 12mm;
+      }
+
+      body {
+        background-color: #ffffff !important;
+        color: #1f2937 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .resume-doc {
+        background: #ffffff !important;
+        border: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .resume-doc::before {
+        display: none !important;
+      }
+
+      .name-title h1 {
+        color: #111827 !important;
+        font-size: 26px !important;
+      }
+
+      .name-title .subtitle {
+        color: #d95b00 !important;
+        font-size: 13.5px !important;
+        font-weight: 700 !important;
+      }
+
+      .contact-grid {
+        color: #4b5563 !important;
+        font-size: 11px !important;
+        gap: 6px 14px !important;
+        margin-top: 10px !important;
+      }
+
+      .contact-item a {
+        color: #1f2937 !important;
+      }
+
+      .resume-header {
+        border-bottom: 1.5px solid #e5e7eb !important;
+        padding-bottom: 14px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .section {
+        margin-bottom: 18px !important;
+      }
+
+      .section-title {
+        color: #111827 !important;
+        font-size: 12px !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        padding-bottom: 5px !important;
+        margin-bottom: 12px !important;
+      }
+
+      .section-title::before {
+        background: #d95b00 !important;
+      }
+
+      .summary-text {
+        font-size: 11.5px !important;
+        line-height: 1.55 !important;
+        color: #374151 !important;
+      }
+
+      .summary-highlight {
+        color: #111827 !important;
+        font-weight: 700 !important;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      .skill-card {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 10px 12px !important;
+        break-inside: avoid !important;
+      }
+
+      .skill-card h4 {
+        color: #d95b00 !important;
+        font-size: 11px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .skill-card ul {
+        font-size: 10.5px !important;
+        color: #374151 !important;
+        line-height: 1.45 !important;
+      }
+
+      .skill-card li::before {
+        color: #d95b00 !important;
+      }
+
+      /* Clean break to Page 2 */
+      .page-break-section {
+        break-before: page !important;
+        margin-top: 10px !important;
+      }
+
+      .exp-item {
+        margin-bottom: 16px !important;
+        break-inside: avoid !important;
+      }
+
+      .exp-role {
+        font-size: 13px !important;
+        color: #111827 !important;
+      }
+
+      .exp-date {
+        color: #9a3412 !important;
+        background: #ffedd5 !important;
+        font-size: 10px !important;
+        padding: 1px 6px !important;
+      }
+
+      .exp-company {
+        color: #4b5563 !important;
+        font-size: 11px !important;
+        margin-bottom: 4px !important;
+      }
+
+      .exp-bullets {
+        font-size: 10.5px !important;
+        color: #374151 !important;
+        line-height: 1.45 !important;
+      }
+
+      .exp-bullets li {
+        margin-bottom: 4px !important;
+      }
+
+      .exp-bullets li::before {
+        color: #d95b00 !important;
+      }
+
+      .exp-bullets a {
+        color: #d95b00 !important;
+        text-decoration: underline !important;
+      }
+
+      .tools-container {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      .tool-group {
+        background: #f9fafb !important;
+        border: 1px solid #e5e7eb !important;
+        padding: 8px 10px !important;
+        break-inside: avoid !important;
+      }
+
+      .tool-group-title {
+        color: #d95b00 !important;
+        font-size: 9.5px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .tool-badge {
+        background: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+        color: #1f2937 !important;
+        font-size: 9.5px !important;
+        padding: 2px 6px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="action-bar">
+      <div class="badge-pill"><span class="dot"></span>Target: Experienced TikTok Shop AI Creator (Full-Time Dedicated)</div>
+      <div class="actions-group">
+        <a href="/" class="btn btn-secondary">Portfolio Hub</a>
+        <button class="btn btn-secondary" onclick="window.print()">Print / PDF</button>
+      </div>
+    </header>
+
+    <main class="resume-doc">
+      <header class="resume-header">
+        <div class="name-title">
+          <h1>ALLEN JENUEL OLAVIDEZ</h1>
+          <div class="subtitle">TikTok Shop AI Creator | Generative Video &amp; High-Velocity E-Commerce Specialist</div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">Muntinlupa City, Metro Manila, Philippines (100% Remote)</div>
+          <div class="contact-item"><a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a></div>
+          <div class="contact-item"><a href="https://allenolavidez.vercel.app">allenolavidez.vercel.app</a></div>
+          <div class="contact-item"><a href="https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/">LinkedIn</a></div>
+          <div class="contact-item">Full-Time Dedicated (6–7 Days/Wk | 6–8 Hrs/Day | 40–50+ Hrs/Wk)</div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Systems-driven, high-velocity <span class="summary-highlight">TikTok Shop AI Creator &amp; E-Commerce Video Specialist</span> with an academic background in Information Technology (BSIT, South Mansfield College) and 4+ years of hands-on media production and digital commerce experience. Specializes in uniting cutting-edge generative AI video engines (<span class="summary-highlight">Google Flow, Google Veo, Kling AI, Runway Gen-3, Higgsfield, Midjourney v6</span>) with conversion-obsessed direct-response post-production (<span class="summary-highlight">CapCut Desktop, Adobe Premiere Pro, ElevenLabs</span>).
+        </p>
+        <p class="summary-text" style="margin-top: 10px;">
+          Proven track record executing end-to-end TikTok Shop creatives, DTC launches (Artisan Beadfit), and high-retention vertical video frameworks. Engineered 3-tier hook frameworks across a 1,000+ video library delivering <span class="summary-highlight">&gt;40% 3-second thumbstop rates</span>. Operates with an account-growth mindset: rapid angle testing, dynamic camera b-roll generation, AI artifact elimination, and 100% dedicated full-time execution capacity.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Core Domain Capabilities</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Generative AI Video &amp; Visuals</h4>
+            <ul>
+              <li>Google Flow, Google Veo &amp; Kling AI b-roll generation</li>
+              <li>Higgsfield, Runway Gen-3 &amp; HeyGen workflows</li>
+              <li>Midjourney v6 with --cref for product &amp; persona sheets</li>
+              <li>Eliminating AI morphing, warped limbs &amp; render artifacts</li>
+              <li>Dynamic camera prompt control (orbit, dolly, zoom, pan)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>TikTok Shop &amp; E-Commerce Content</h4>
+            <ul>
+              <li>High-converting 9:16 vertical video architecture</li>
+              <li>Contrarian, mirror, and visual shock retention hooks</li>
+              <li>1.5s–2.5s rapid visual pacing &amp; zero dead air</li>
+              <li>Native TikTok caption styling, flash sale stickers &amp; badges</li>
+              <li>Direct-response product showcases &amp; unboxing flow</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Post-Production &amp; Voice Synthesis</h4>
+            <ul>
+              <li>CapCut Desktop: speed ramping, mask transitions &amp; kinetic text</li>
+              <li>Adobe Premiere Pro: multi-track master leveling &amp; grading</li>
+              <li>ElevenLabs: authentic conversational American voice synthesis</li>
+              <li>Layered sound design: whooshes, risers, pop hits &amp; beat cuts</li>
+              <li>High-velocity daily output &amp; systematic variation testing</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-break-section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Lead Video Editor &amp; Digital Operations Specialist (E-Commerce &amp; AI Content)</div>
+            <div class="exp-date">2024 – PRESENT</div>
+          </div>
+          <div class="exp-company">Independent Brands &amp; Artisan Beadfit (Private Label DTC &amp; TikTok Shop) | Remote</div>
+          <ul class="exp-bullets">
+            <li><strong>TikTok Shop Product Creatives:</strong> Directed, scripted, and edited high-converting 9:16 vertical video assets for Artisan Beadfit (custom gemstone bracelets). Combined generative AI b-roll with real product macro-shots, leading to strong viral discovery and flash-sale conversions. Direct Video Proof: <a href="https://allenolavidez.vercel.app/artisan_beadfit_web.mp4" target="_blank">allenolavidez.vercel.app/artisan_beadfit_web.mp4</a></li>
+            <li><strong>Generative AI Video Production:</strong> Built high-velocity production pipelines utilizing Google Flow, Google Veo, Kling AI, and Midjourney to generate product b-roll, lifestyle environments, and cinematic transitions without expensive live shoots. Samples: <a href="https://allenolavidez.vercel.app/action_clip_web.mp4" target="_blank">Action AI Cut</a> | <a href="https://allenolavidez.vercel.app/drama_clip_web.mp4" target="_blank">Atmospheric AI Cut</a>.</li>
+            <li><strong>High-Velocity Creative Testing:</strong> Generated and iterated 15–25 creative variations weekly, testing different opening 3-second hooks, sound tracks, and text hooks to identify winning algorithm triggers.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Video Editor &amp; Content Scriptwriter (Part-Time Retainer)</div>
+            <div class="exp-date">NOV 2025 – PRESENT</div>
+          </div>
+          <div class="exp-company">US Authority Brand &amp; Transformation Practice (1.5M+ Global Audience) | Remote (~10–15 hrs/wk flexible)</div>
+          <ul class="exp-bullets">
+            <li><strong>High-Volume Retention Video Library:</strong> Produced high-retention video assets across a premier 1,000+ published video catalog (161 long-form masterclasses and 869 short-form modules).</li>
+            <li><strong>Algorithm-Optimized Hooks:</strong> Engineered custom 3-tier hook frameworks (Contrarian Slap, Symptom Mirror, Authority Hook) driving &gt;40% 3-second thumbstop rates and sustained audience retention.</li>
+            <li><strong>Pacing &amp; Polish:</strong> Trimmed pauses, matched kinetic caption styling to brand aesthetic, and layered bespoke audio soundscapes.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Customer Operations &amp; Retention Specialist</div>
+            <div class="exp-date">2022 – 2024</div>
+          </div>
+          <div class="exp-company">WNS Global Services | Account: NRMA Insurance (Australia)</div>
+          <ul class="exp-bullets">
+            <li>Handled high-volume international communications with native English fluency, strict compliance adherence, and rigorous quality metrics.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Operations &amp; Production Lead</div>
+            <div class="exp-date">2016 – 2020</div>
+          </div>
+          <div class="exp-company">Mobilia Fabrica (Custom Lifestyle Goods &amp; Furniture) | Metro Manila</div>
+          <ul class="exp-bullets">
+            <li>Led operations and quality control for bespoke fabrication orders (10–30 custom runs monthly); implemented standardized checklist systems that cut production defects by 25%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Technical &amp; Software Tool Stack</h2>
+        <div class="tools-container">
+          <div class="tool-group">
+            <div class="tool-group-title">AI Video &amp; Visuals</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Google Flow</span>
+              <span class="tool-badge">Google Veo</span>
+              <span class="tool-badge">Kling AI</span>
+              <span class="tool-badge">Runway Gen-3</span>
+              <span class="tool-badge">Higgsfield</span>
+              <span class="tool-badge">HeyGen</span>
+              <span class="tool-badge">Midjourney v6</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Editing &amp; NLE</div>
+            <div class="tool-badges">
+              <span class="tool-badge">CapCut Desktop</span>
+              <span class="tool-badge">Adobe Premiere Pro</span>
+              <span class="tool-badge">After Effects</span>
+              <span class="tool-badge">Photoshop</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Voice &amp; Audio</div>
+            <div class="tool-badges">
+              <span class="tool-badge">ElevenLabs</span>
+              <span class="tool-badge">Descript</span>
+              <span class="tool-badge">Adobe Podcast AI</span>
+              <span class="tool-badge">Audio Jungle</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">E-Com Ops &amp; Workflow</div>
+            <div class="tool-badges">
+              <span class="tool-badge">TikTok Shop Seller Center</span>
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">Google Drive DAM</span>
+              <span class="tool-badge">Slack</span>
+              <span class="tool-badge">Loom</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education &amp; Technical Foundation</h2>
+        <div class="exp-header">
+          <div class="exp-role">Bachelor of Science in Information Technology (BSIT)</div>
+          <div class="exp-date">SENIOR STANDING (3 YRS COMPLETED)</div>
+        </div>
+        <div class="exp-company">South Mansfield College | Muntinlupa City, Metro Manila</div>
+        <p style="font-size: 12.5px; color: #4b5563; margin-top: 4px;">
+          Applied training in multimedia architectures, programming logic, systems design, and database workflows.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Resume | News Writing Assistant &amp; Research Writer</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — News Writing Assistant, research writer and accuracy-focused editor." />
+  <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
+  
+  <!-- Fonts: Syne, Satoshi & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0e0e14;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.25);
+      --accent-light: #ffa142;
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --tag-border: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 12px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--accent-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c33);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 56px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b00, #f59e0b, #eab308);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .name-title h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .name-title .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .summary-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .skill-card h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .skill-card li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .skill-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .exp-item {
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--accent-light);
+    }
+
+    .exp-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      font-size: 13.5px;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .tool-group-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .tool-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-badge {
+      font-size: 11.5px;
+      padding: 3px 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 6px;
+      color: var(--text-main);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 0;
+      }
+      .action-bar, #copy-toast {
+        display: none !important;
+      }
+      .resume-doc {
+        border: none;
+        box-shadow: none;
+        padding: 20px;
+        background: #fff;
+      }
+      .name-title h1, .section-title, .exp-role {
+        color: #000;
+      }
+      .name-title .subtitle, .exp-date, .skill-card h4 {
+        color: #c2410c;
+      }
+      .summary-text, .exp-bullets, .skill-card ul {
+        color: #374151;
+      }
+      .skill-card, .tool-group {
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+      .tool-badge {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+        color: #111;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .resume-doc {
+        padding: 28px 20px;
+      }
+      .name-title h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="action-bar">
+      <div class="badge-pill"><span class="dot"></span>Target: News Writing Assistant (UK Hours)</div>
+      <div class="actions-group">
+        <a href="/" class="btn btn-secondary">Portfolio Hub</a>
+        <button class="btn btn-secondary" onclick="window.print()">Print / PDF</button>
+      </div>
+    </header>
+
+    <main class="resume-doc">
+      <header class="resume-header">
+        <div class="name-title">
+          <h1>ALLEN JENUEL OLAVIDEZ</h1>
+          <div class="subtitle">News Writing Assistant | Research Writer &amp; Accuracy-Focused Editor</div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">Muntinlupa City, Metro Manila, Philippines (Remote)</div>
+          <div class="contact-item"><a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a></div>
+          <div class="contact-item"><a href="https://allenolavidez.vercel.app">allenolavidez.vercel.app</a></div>
+          <div class="contact-item"><a href="https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/">LinkedIn</a></div>
+          <div class="contact-item">Available Mon–Fri, 7am–3pm UK (3pm–11pm PHT) | Start: early November 2026</div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Careful writer and researcher who turns complex source material into short, plain-English drafts. Since November 2025 I have written scripts for a US health brand, where every claim must match the source research. Before that, <span class="summary-highlight">3+ years in audited, checklist-driven roles</span> for Australian insurance (WNS / NRMA) and US banking (Concentrix / Citi) clients, where accuracy was reviewed daily. I use AI tools as drafting aids, then verify names, numbers, dates and quotes myself, and I flag anything I cannot confirm instead of guessing.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Writing &amp; Editing</h4>
+            <ul>
+              <li>Short-form drafts written to a template and style guide</li>
+              <li>Clear, plain-English summaries of complex material</li>
+              <li>Headline and copy tightening</li>
+              <li>Excellent written English</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Fact-Checking &amp; Research</h4>
+            <ul>
+              <li>Line-by-line source checks: names, dates, places, numbers, quotes</li>
+              <li>Spotting figures that don't add up or sources that disagree</li>
+              <li>Quick searches for updated information, with source links</li>
+              <li>Flagging uncertainty clearly to editors</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Tools &amp; Workflow</h4>
+            <ul>
+              <li>ChatGPT &amp; Claude (drafting aid, always verified)</li>
+              <li>Google Docs, Sheets, Drive; Notion</li>
+              <li>Slack (fast, reliable replies); Zoom, Loom</li>
+              <li>Comfortable working to tight morning deadlines</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Content Scriptwriter &amp; Video Editor (Part-Time Retainer)</div>
+            <div class="exp-date">NOV 2025 – PRESENT</div>
+          </div>
+          <div class="exp-company">US Health &amp; Wellness Brand (name withheld under NDA) | Remote</div>
+          <ul class="exp-bullets">
+            <li>Write short scripts that translate clinical research into plain English for a large general audience.</li>
+            <li>Check every claim, figure and term against the source material before submitting.</li>
+            <li>Work to a house style and fixed formats, revising quickly from editor feedback.</li>
+            <li>Part-time and asynchronous, so it does not overlap with UK working hours.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Customer Operations &amp; Retention Specialist</div>
+            <div class="exp-date">2022 – 2024</div>
+          </div>
+          <div class="exp-company">WNS Global Services | Account: NRMA Insurance (Australia)</div>
+          <ul class="exp-bullets">
+            <li>Handled daily written and verbal communication with native English-speaking customers.</li>
+            <li>Kept policy records accurate under strict SOPs, with documentation audited for compliance.</li>
+            <li>Worked to tight service-level deadlines without sacrificing accuracy.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Collections &amp; Compliance Specialist (Tier 2 → Tier 1)</div>
+            <div class="exp-date">2020 – 2021</div>
+          </div>
+          <div class="exp-company">Concentrix | Account: Citi</div>
+          <ul class="exp-bullets">
+            <li>Verified account records and documentation against regulatory standards.</li>
+            <li>Promoted from Tier 2 to Tier 1 within 6 months.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Operations &amp; Production Lead</div>
+            <div class="exp-date">2016 – 2020</div>
+          </div>
+          <div class="exp-company">Mobilia Fabrica (Custom Furniture &amp; Lifestyle Goods) | Metro Manila</div>
+          <ul class="exp-bullets">
+            <li>Coordinated 10–30 custom orders a month; built quotation sheets and delivery tracking that cut order errors by 25%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education</h2>
+        <div class="exp-header">
+          <div class="exp-role">Bachelor of Science in Information Technology (BSIT)</div>
+          <div class="exp-date">3 YEARS COMPLETED</div>
+        </div>
+        <div class="exp-company">South Mansfield College | Muntinlupa City, Metro Manila</div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

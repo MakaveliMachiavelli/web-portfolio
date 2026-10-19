@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Resume | Remodeling Organic Social Media Growth & Lead Gen Specialist</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — Organic Social Media Growth & Lead Generation Specialist, Construction & Remodeling Creative Lead, Video Editor, and Custom Fabrication Operations Lead." />
+  <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
+  
+  <!-- Fonts: Syne, Satoshi & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0e0e14;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.25);
+      --accent-light: #ffa142;
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --tag-border: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 12px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--accent-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c33);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 56px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b00, #f59e0b, #eab308);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .name-title h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .name-title .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .summary-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .skill-card h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .skill-card li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .skill-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .exp-item {
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--accent-light);
+    }
+
+    .exp-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      font-size: 13.5px;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .tool-group-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .tool-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-badge {
+      font-size: 11.5px;
+      padding: 3px 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 6px;
+      color: var(--text-main);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 0;
+      }
+      .action-bar, #copy-toast {
+        display: none !important;
+      }
+      .resume-doc {
+        border: none;
+        box-shadow: none;
+        padding: 20px;
+        background: #fff;
+      }
+      .name-title h1, .section-title, .exp-role {
+        color: #000;
+      }
+      .name-title .subtitle, .exp-date, .skill-card h4 {
+        color: #c2410c;
+      }
+      .summary-text, .exp-bullets, .skill-card ul {
+        color: #374151;
+      }
+      .skill-card, .tool-group {
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+      .tool-badge {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+        color: #111;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .resume-doc {
+        padding: 28px 20px;
+      }
+      .name-title h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Floating Action Bar -->
+    <header class="action-bar">
+      <div class="badge-pill">
+        <span class="dot"></span>
+        Target: DFW Construction &amp; Remodeling Growth
+      </div>
+      <div class="actions-group">
+        <a href="/" class="btn btn-secondary">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Portfolio Hub
+        </a>
+        <button class="btn btn-secondary" onclick="window.print()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Print / PDF
+        </button>
+        <button class="btn btn-primary" onclick="copyResumeMarkdown()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+          Copy Text
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Resume Document -->
+    <main class="resume-doc">
+      <!-- Header -->
+      <header class="resume-header">
+        <div class="header-top">
+          <div class="name-title">
+            <h1>ALLEN JENUEL OLAVIDEZ</h1>
+            <div class="subtitle">Organic Social Media Growth &amp; Lead Generation Specialist | Remodeling Creative Lead</div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Metro Manila, Philippines (100% Remote | US Central Time CST Compatible)
+          </div>
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+            <a href="https://allenolavidez.vercel.app" target="_blank">allenolavidez.vercel.app</a>
+          </div>
+          <div class="contact-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span>Full-Time (40 Hours/Week)</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Professional Summary -->
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Creative, analytical, and systems-driven <span class="summary-highlight">Organic Social Media Growth Specialist &amp; Video Producer</span> with a unique dual background: <span class="summary-highlight">4 years of custom fabrication, bespoke furniture production, interior design consultation, and high-ticket client management (Mobilia Fabrica)</span> combined with <span class="summary-highlight">master-level short-form video editing and organic growth architecture</span> for a US authority brand with over <span class="summary-highlight">1.5 Million cross-platform followers (1.3M+ on Instagram) with 25M+ organic views</span>.
+        </p>
+        <p class="summary-text" style="margin-top: 10px;">
+          Unlike conventional social media managers who post generic aesthetics, brings real-world comprehension of physical spaces, architectural materials (hardwoods, quartz, cabinetry, tile, fixtures), job-site construction phases (demo, framing, rough-ins, finish carpentry), and high-ticket homeowner psychology ($25k–$100k+ renovations). Specializes in taking raw on-site contractor video clips and turning them into <span class="summary-highlight">scroll-stopping before-and-after transformation Reels, hyper-local Dallas–Fort Worth organic discovery assets, and high-converting inbound DM quote pipelines—100% organically with zero paid ad spend</span>.
+        </p>
+      </section>
+
+      <!-- Core Capabilities Grid -->
+      <section class="section">
+        <h2 class="section-title">Core Domain Capabilities</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Remodeling &amp; Craftsmanship Storytelling</h4>
+            <ul>
+              <li>Before-and-after dynamic video pacing</li>
+              <li>Job-site demolition &amp; framing breakdown</li>
+              <li>Custom cabinetry &amp; finish highlight reels</li>
+              <li>Material comparison carousels (Quartz vs Quartzite)</li>
+              <li>Homeowner objection handling &amp; cost transparency</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Short-Form Video Production</h4>
+            <ul>
+              <li>CapCut Desktop &amp; Adobe Premiere Pro workflows</li>
+              <li>0–3s visual pattern interrupts (&gt;40% thumbstop)</li>
+              <li>Kinetic animated subtitles &amp; sound design</li>
+              <li>Rec.709 color correction for job-site lighting</li>
+              <li>High-converting 9:16 vertical formatting</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>DFW Local Growth &amp; Lead Systems</h4>
+            <ul>
+              <li>Dallas–Fort Worth hyper-local geo-tagging</li>
+              <li>High-value suburb SEO (Frisco, Plano, Southlake)</li>
+              <li>Comment-to-Inbound DM estimate funnels</li>
+              <li>Content calendar planning &amp; batch scheduling</li>
+              <li>Weekly reporting on reach, saves, and inquiries</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Experience -->
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <!-- Role 1 -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Master Content Scriptwriter &amp; Video Editor (Part-Time Retainer)</div>
+            <div class="exp-date">NOV 2025 – PRESENT</div>
+          </div>
+          <div class="exp-company">US Authority Brand &amp; Transformation Practice | Remote (~10–15 hrs/week)</div>
+          <ul class="exp-bullets">
+            <li><strong>Organic Content for a 1.5M+ Follower Brand (1.3M+ on Instagram):</strong> Developed and edited high-retention vertical video content for an established authority brand's organic channels.</li>
+            <li><strong>Retention Architecture:</strong> Achieved an average 3-second thumbstop rate exceeding <strong>40%+</strong> through rapid visual pattern interrupts, dead-air trimming, and rhythmic jump cuts.</li>
+            <li><strong>Inbound Lead Generation:</strong> Architected conversational comment-to-DM triggers (e.g. comment triggers delivering free guides), systematically funneling casual viewers into private consultations and high-intent inquiries.</li>
+            <li><strong>Autonomous Scheduling:</strong> Operates on a streamlined 10–15 hour weekly schedule, maintaining <strong>100% open, guaranteed bandwidth for a dedicated 40 hr/week full-time partnership</strong>.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Operations &amp; Production Lead</div>
+            <div class="exp-date">2016 – 2020</div>
+          </div>
+          <div class="exp-company">Mobilia Fabrica (Custom Furniture, Fabrication &amp; Lifestyle Goods) | Metro Manila</div>
+          <ul class="exp-bullets">
+            <li><strong>Residential Fabrication &amp; Remodeling Operations:</strong> Managed 10–30 bespoke custom fabrication projects concurrently across a 6–15 person workshop, coordinating projects from initial brief through shop drawings, material selection, fabrication, and on-site delivery.</li>
+            <li><strong>Interior Design &amp; High-Ticket Client Consultation:</strong> Conducted direct consultations with homeowners, interior designers, and architects, managing expectations, drafting quotation schedules, and translating aesthetic visions into structural specifications.</li>
+            <li><strong>Craftsmanship &amp; Material Mastery:</strong> Deep hands-on fluency in wood grain matching, veneers, joinery, quartz surfaces, metal fabrication, and finish durability—enabling effortless communication of remodeling craftsmanship in video content.</li>
+            <li><strong>Error Reduction:</strong> Architected quotation templates and production tracking workflows that reduced order discrepancies and rework by 25%.</li>
+          </ul>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Lead Video Editor &amp; Social Media Specialist</div>
+            <div class="exp-date">2024 – PRESENT</div>
+          </div>
+          <div class="exp-company">Independent Digital &amp; Creator Brands | Remote</div>
+          <ul class="exp-bullets">
+            <li><strong>High-Velocity Vertical Video Production:</strong> Produced, edited, and formatted hundreds of vertical videos for Instagram Reels, Facebook, and TikTok in CapCut Desktop and Premiere Pro, optimizing sound design, transitions, and pacing.</li>
+            <li><strong>Visual Branding &amp; Collateral:</strong> Designed branded carousels, before-and-after showcase cards, and promotional infographics in Canva Pro and Adobe Photoshop.</li>
+            <li><strong>Digital Asset Management (DAM):</strong> Maintained structured Google Drive repositories with strict naming conventions for raw contractor footage, B-roll sound banks, and finalized exports.</li>
+          </ul>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Customer Operations &amp; Retention Specialist</div>
+            <div class="exp-date">2022 – 2024</div>
+          </div>
+          <div class="exp-company">WNS Global Services | Account: NRMA Insurance (Australia)</div>
+          <ul class="exp-bullets">
+            <li><strong>High-Value Asset Servicing:</strong> Serviced thousands of residential property policyholders, mastering consultative communication, active listening, and high-ticket customer reassurance under pressure.</li>
+            <li><strong>Performance Excellence:</strong> Consistently exceeded monthly retention targets and SLA benchmarks.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Technical & Software Stack -->
+      <section class="section">
+        <h2 class="section-title">Technical &amp; Software Tool Stack</h2>
+        <div class="tools-container">
+          <div class="tool-group">
+            <div class="tool-group-title">Video Editing</div>
+            <div class="tool-badges">
+              <span class="tool-badge">CapCut Desktop</span>
+              <span class="tool-badge">Premiere Pro</span>
+              <span class="tool-badge">Descript</span>
+              <span class="tool-badge">Audacity</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Design &amp; Visuals</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Canva Pro</span>
+              <span class="tool-badge">Photoshop</span>
+              <span class="tool-badge">Figma</span>
+              <span class="tool-badge">Lightroom</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Social &amp; Inbound Leads</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Meta Business Suite</span>
+              <span class="tool-badge">Instagram Creator</span>
+              <span class="tool-badge">ManyChat DM Triggers</span>
+              <span class="tool-badge">TikTok Studio</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Workspace &amp; Ops</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Google Drive / DAM</span>
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">Slack / Zoom</span>
+              <span class="tool-badge">Trello</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education &amp; Technical Foundation</h2>
+        <div class="exp-header">
+          <div class="exp-role">Bachelor of Science in Information Technology (BSIT)</div>
+          <div class="exp-date">SENIOR STANDING (3 YRS COMPLETED)</div>
+        </div>
+        <div class="exp-company">South Mansfield College | Muntinlupa City, Metro Manila</div>
+        <p style="font-size: 13.5px; color: #9ca3af; margin-top: 6px;">
+          Applied coursework in digital systems, database architectures, programming logic, and multimedia asset workflows.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div id="copy-toast">Resume Plaintext Copied to Clipboard!</div>
+
+  <script>
+    function copyResumeMarkdown() {
+      const text = `ALLEN JENUEL OLAVIDEZ
+Organic Social Media Growth & Lead Generation Specialist | Remodeling Creative Lead
+Email: allenolavidez@gmail.com
+Live Portfolio: https://allenolavidez.vercel.app
+LinkedIn: https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/
+Availability: Full-Time (40 Hours/Week) | Dedicated Video Rig & High-Speed Fiber
+
+PROFESSIONAL SUMMARY
+Creative, analytical, and systems-driven Organic Social Media Growth Specialist & Video Producer with a unique dual foundation: 4 years of custom fabrication, furniture production, interior design consultation, and high-ticket client management (Mobilia Fabrica) combined with master-level short-form video editing and organic growth architecture for a US authority brand with over 1.5 Million cross-platform followers (1.3M+ on Instagram) with 25M+ organic views.
+
+Unlike conventional social media managers who treat construction like lifestyle blogging, brings hands-on understanding of physical spaces, architectural materials (hardwoods, quartz, cabinetry, tile, finishes), job-site phases (demo, framing, rough-ins, finish carpentry), and high-ticket homeowner psychology ($25k–$100k+ renovations). Specializes in taking raw on-site contractor video clips and turning them into scroll-stopping before-and-after transformation Reels, hyper-local Dallas–Fort Worth organic discovery assets, and high-converting inbound DM quote pipelines—100% organically with zero paid ad spend.
+
+EXPERIENCE
+1. Master Content Scriptwriter & Video Editor (Part-Time Retainer | ~10–15 hrs/wk)
+US Authority Brand & Transformation Practice | Nov 2025 – Present
+- Scriptwriter and editor for an authority brand with 1.5M+ cross-platform followers (1.3M+ on Instagram).
+- Maintained >40% average 3-second thumbstop rates through rapid pattern interrupts and tight visual pacing.
+- Built low-friction comment-to-DM triggers that converted casual video viewers into qualified private inquiries.
+- Maintains 100% open bandwidth for a dedicated 40 hr/week full-time role.
+
+2. Operations & Production Lead
+Mobilia Fabrica (Custom Furniture, Fabrication & Lifestyle Goods) | 2016 – 2020
+- Managed 10–30 bespoke custom fabrication projects concurrently across a 6–15 person workshop, from brief through shop drawings, material selection, and on-site delivery.
+- Conducted direct consultations with homeowners, interior designers, and architects, managing expectations, drafting quotation schedules, and translating aesthetic visions into structural specifications.
+- Deep hands-on fluency in wood grain matching, veneers, joinery, quartz surfaces, and finishes—enabling effortless communication of remodeling craftsmanship in video content.
+- Reduced order discrepancies and rework by 25% through standardized quotation templates and production trackers.
+
+3. Lead Video Editor & Social Media Specialist
+Independent Digital & Creator Brands | 2024 – Present
+- Produced, edited, and formatted hundreds of vertical videos for Instagram Reels, Facebook, and TikTok in CapCut Desktop and Premiere Pro.
+- Designed branded carousels, before-and-after showcase cards, and promotional infographics in Canva Pro and Photoshop.
+
+4. Customer Operations & Retention Specialist
+WNS Global Services (Client: NRMA Insurance Australia) | 2022 – 2024
+- Serviced residential property policyholders, mastering consultative communication, active listening, and high-ticket customer reassurance under pressure.
+
+EDUCATION
+BS in Information Technology (BSIT, Senior Standing) — South Mansfield College`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateY(0)';
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(10px)';
+        }, 3000);
+      });
+    }
+  </script>
+</body>
+</html>

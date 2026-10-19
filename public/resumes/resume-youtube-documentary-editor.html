@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allen Olavidez — Resume | YouTube Documentary Video Editor &amp; AI Media Specialist</title>
+  <meta name="description" content="Resume of Allen Jenuel Olavidez — YouTube Documentary Video Editor, Faceless &amp; AI-Assisted Media Specialist." />
+  <link rel="icon" type="image/svg+xml" href="/allen_logo.svg" />
+  
+  <!-- Fonts: Syne, Satoshi & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --card-bg: #0e0e14;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.14);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --accent: #ff6b00;
+      --accent-glow: rgba(255, 107, 0, 0.25);
+      --accent-light: #ffa142;
+      --tag-bg: rgba(255, 255, 255, 0.05);
+      --tag-border: rgba(255, 255, 255, 0.1);
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px 80px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Floating Action Bar */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 12px 20px;
+      background: rgba(18, 18, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 107, 0, 0.12);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      color: var(--accent-light);
+    }
+
+    .badge-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff6b00, #ff8c33);
+      color: #000;
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 107, 0, 0.45);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #000;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .resume-doc {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 50px 56px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff6b00, #f59e0b, #eab308);
+    }
+
+    .resume-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .name-title h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .name-title .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .summary-text {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #d1d5db;
+    }
+
+    .summary-highlight {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .skill-card h4 {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .skill-card li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 5px;
+    }
+
+    .skill-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .exp-item {
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .exp-role {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--accent-light);
+    }
+
+    .exp-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      font-size: 13.5px;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .exp-bullets li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+    }
+
+    .exp-bullets li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 1px;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .tool-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .tool-group-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .tool-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-badge {
+      font-size: 11.5px;
+      padding: 3px 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 6px;
+      color: var(--text-main);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+        padding: 0;
+      }
+      .action-bar, #copy-toast {
+        display: none !important;
+      }
+      .resume-doc {
+        border: none;
+        box-shadow: none;
+        padding: 20px;
+        background: #fff;
+      }
+      .name-title h1, .section-title, .exp-role {
+        color: #000;
+      }
+      .name-title .subtitle, .exp-date, .skill-card h4 {
+        color: #c2410c;
+      }
+      .summary-text, .exp-bullets, .skill-card ul {
+        color: #374151;
+      }
+      .skill-card, .tool-group {
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+      .tool-badge {
+        background: #f3f4f6;
+        border-color: #d1d5db;
+        color: #111;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .resume-doc {
+        padding: 28px 20px;
+      }
+      .name-title h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="action-bar">
+      <div class="badge-pill"><span class="dot"></span>Target: YouTube Documentary Editor (Faceless &amp; AI-Assisted)</div>
+      <div class="actions-group">
+        <a href="/" class="btn btn-secondary">Portfolio Hub</a>
+        <button class="btn btn-secondary" onclick="window.print()">Print / PDF</button>
+      </div>
+    </header>
+
+    <main class="resume-doc">
+      <header class="resume-header">
+        <div class="name-title">
+          <h1>ALLEN JENUEL OLAVIDEZ</h1>
+          <div class="subtitle">YouTube Documentary Video Editor | Faceless &amp; AI-Assisted Media Specialist</div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item">Muntinlupa City, Metro Manila, Philippines (100% Remote)</div>
+          <div class="contact-item"><a href="mailto:allenolavidez@gmail.com">allenolavidez@gmail.com</a></div>
+          <div class="contact-item"><a href="https://allenolavidez.vercel.app">allenolavidez.vercel.app</a></div>
+          <div class="contact-item"><a href="https://www.linkedin.com/in/allen-olavidez-olavidez-2b37a5373/">LinkedIn</a></div>
+          <div class="contact-item">Part-Time / Freelance (3–4 Videos/Wk | 12–16+/Month)</div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="summary-text">
+          Creative, analytical, and systems-driven <span class="summary-highlight">YouTube Documentary Video Editor &amp; AI Media Specialist</span> with an academic background in Information Technology (BSIT, South Mansfield College) and 4+ years of media production experience. Specializes in taking raw scripts, voiceovers, and initial AI-generated drafts and transforming them into <span class="summary-highlight">polished, high-retention 15–20 minute faceless YouTube documentaries</span> on business, economics, technology, and consumer behavior.
+        </p>
+        <p class="summary-text" style="margin-top: 10px;">
+          Expert in solving the core limitations of generative AI: eliminating warped visual artifacts, replacing generic clips with contextually accurate commercial stock footage, enforcing 2.5s–4s pacing resets, incorporating kinetic data charts, and mixing broadcast-balanced soundscapes (dialogue leveling, ambient room beds, and tension risers) that keep viewers watching past the 15-minute mark.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Core Domain Capabilities</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4>Long-Form Documentary Pacing</h4>
+            <ul>
+              <li>15–20 min YouTube retention architecture</li>
+              <li>Cold open extraction (0:00–0:45 retention hooks)</li>
+              <li>Micro-syllable &amp; dead-air trimming</li>
+              <li>2.5s–4s visual shift rule to prevent drop-off</li>
+              <li>Vocal leveling, de-essing &amp; dialogue ducking</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>AI Footage Refinement &amp; Repair</h4>
+            <ul>
+              <li>VidRush, Higgsfield, Runway &amp; Kling workflows</li>
+              <li>Eliminating AI visual glitches &amp; warped frames</li>
+              <li>Matching camera motion (pan, tilt, zoom)</li>
+              <li>Midjourney v6 scene &amp; character consistency</li>
+              <li>Seamless blending of AI and licensed stock</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4>Explainers, Graphics &amp; Delivery</h4>
+            <ul>
+              <li>Kinetic data charts, stats, and text callouts</li>
+              <li>Economic &amp; consumer behavior visualizations</li>
+              <li>Strict commercial usage licensing on all assets</li>
+              <li>Master 1080p 16:9 exports + editable project files</li>
+              <li>Reliable 48–72h turnaround per 20-minute video</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Video Editor &amp; Content Scriptwriter (Part-Time Retainer)</div>
+            <div class="exp-date">NOV 2025 – PRESENT</div>
+          </div>
+          <div class="exp-company">US Authority Brand &amp; Transformation Practice | Remote (~10–15 hrs/week)</div>
+          <ul class="exp-bullets">
+            <li><strong>Long-Form &amp; Short-Form Production:</strong> Engineered video pacing and visual retention across a premier 1,000+ published video catalog (including 161 long-form YouTube masterclasses and 869 short-form modules).</li>
+            <li><strong>Retention Architecture:</strong> Structured narrative arcs from multi-take footage into cohesive 15–30 minute masterclasses with click-worthy titles and cold opens, maximizing Average View Duration (AVD).</li>
+            <li><strong>Flexible Bandwidth:</strong> Operates on an efficient, flexible schedule, ensuring 100% open, guaranteed bandwidth to edit 3–4 long-form documentary videos per week.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Lead Video Editor &amp; Digital Operations Specialist</div>
+            <div class="exp-date">2024 – PRESENT</div>
+          </div>
+          <div class="exp-company">Independent Digital &amp; Creator Brands | Remote</div>
+          <ul class="exp-bullets">
+            <li><strong>Faceless Documentary &amp; Explainer Post-Production:</strong> Edited long-form and short-form documentary videos on business, technology, and economics using Adobe Premiere Pro and CapCut Desktop.</li>
+            <li><strong>Generative AI Video Refinement:</strong> Directed cinematic concept sequences and motion assets utilizing Google Veo, Google Flow, Kling AI, and Midjourney, replacing low-quality generative artifacts with seamless stock footage and custom motion graphics.</li>
+            <li><strong>Asset Management:</strong> Maintained structured Google Drive asset repositories with strict naming conventions, B-roll tagging, and editable timeline archives.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Customer Operations &amp; Retention Specialist</div>
+            <div class="exp-date">2022 – 2024</div>
+          </div>
+          <div class="exp-company">WNS Global Services | Account: NRMA Insurance (Australia)</div>
+          <ul class="exp-bullets">
+            <li>Serviced international client accounts with native-level English fluency, strict compliance verification, and disciplined deadline management.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Operations &amp; Production Lead</div>
+            <div class="exp-date">2016 – 2020</div>
+          </div>
+          <div class="exp-company">Mobilia Fabrica (Custom Fabrication &amp; Lifestyle Goods) | Metro Manila</div>
+          <ul class="exp-bullets">
+            <li>Managed 10–30 bespoke custom orders monthly; built production schedules and checklist systems that cut error rates by 25%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Technical &amp; Software Tool Stack</h2>
+        <div class="tools-container">
+          <div class="tool-group">
+            <div class="tool-group-title">Editing &amp; NLE</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Adobe Premiere Pro</span>
+              <span class="tool-badge">CapCut Desktop</span>
+              <span class="tool-badge">After Effects</span>
+              <span class="tool-badge">Descript</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">AI Video Platforms</div>
+            <div class="tool-badges">
+              <span class="tool-badge">VidRush</span>
+              <span class="tool-badge">Higgsfield</span>
+              <span class="tool-badge">Runway Gen-3</span>
+              <span class="tool-badge">Kling AI</span>
+              <span class="tool-badge">Google Veo</span>
+              <span class="tool-badge">Midjourney v6</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Motion &amp; Design</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Photoshop</span>
+              <span class="tool-badge">Canva Pro</span>
+              <span class="tool-badge">Figma</span>
+              <span class="tool-badge">Envato / Storyblocks</span>
+            </div>
+          </div>
+          <div class="tool-group">
+            <div class="tool-group-title">Ops &amp; Delivery</div>
+            <div class="tool-badges">
+              <span class="tool-badge">Google Drive / DAM</span>
+              <span class="tool-badge">Notion</span>
+              <span class="tool-badge">Slack</span>
+              <span class="tool-badge">Frame.io</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="margin-bottom: 0;">
+        <h2 class="section-title">Education &amp; Technical Foundation</h2>
+        <div class="exp-header">
+          <div class="exp-role">Bachelor of Science in Information Technology (BSIT)</div>
+          <div class="exp-date">SENIOR STANDING (3 YRS COMPLETED)</div>
+        </div>
+        <div class="exp-company">South Mansfield College | Muntinlupa City, Metro Manila</div>
+        <p style="font-size: 13.5px; color: #9ca3af; margin-top: 6px;">
+          Applied training in multimedia architectures, programming logic, systems design, and database workflows.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
